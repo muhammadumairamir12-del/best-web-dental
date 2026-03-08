@@ -2165,3 +2165,196 @@ if(!localStorage.getItem('alfazal_priv')) {
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Fazl Dental Clinic Live Notifications</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #f0f8ff; 
+        }
+
+        /* Container for notifications - BOTTOM LEFT */
+        #notification-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column-reverse; 
+            gap: 12px;
+            z-index: 99999;
+        }
+
+        /* Dental Clinic style notification card */
+        .notification {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 12px 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: 330px;
+            border-left: 5px solid #00cec9; /* Dental Teal Theme */
+            
+            /* Animation - Left se aana aur 5.5 second baad wapis jana */
+            opacity: 0;
+            transform: translateX(-120%);
+            animation: slideInLeft 0.5s forwards, fadeOutLeft 0.5s 5.5s forwards;
+        }
+
+        /* Patient Photo Styling */
+        .notification img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #00cec9;
+        }
+
+        .notification-text {
+            flex-grow: 1;
+        }
+
+        /* Patient Name */
+        .notification-text h4 {
+            margin: 0 0 4px;
+            font-size: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+
+        /* Patient Action/Review */
+        .notification-text p {
+            margin: 0;
+            font-size: 13px;
+            color: #636e72;
+            line-height: 1.4;
+        }
+
+        /* Verify Tick Mark */
+        .verify-badge {
+            color: #00cec9;
+            font-size: 13px;
+            margin-left: 3px;
+        }
+
+        /* Slide Animations */
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeOutLeft {
+            to {
+                opacity: 0;
+                transform: translateX(-120%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notifications Yahan Show Honge -->
+    <div id="notification-container"></div>
+
+    <script>
+        // Boys aur Girls ke Names aur unka Gender (Taa ke photo sahi aaye)
+        const patients =[
+            { name: "Sana", gender: "women" },
+            { name: "Ali", gender: "men" },
+            { name: "Ayesha", gender: "women" },
+            { name: "Usman", gender: "men" },
+            { name: "Zara", gender: "women" },
+            { name: "Bilal", gender: "men" },
+            { name: "Fatima", gender: "women" },
+            { name: "Hassan", gender: "men" },
+            { name: "Iqra", gender: "women" },
+            { name: "Omar", gender: "men" },
+            { name: "Hira", gender: "women" },
+            { name: "Zain", gender: "men" },
+            { name: "Mahnoor", gender: "women" },
+            { name: "Hamza", gender: "men" },
+            { name: "Kainat", gender: "women" }
+        ];
+
+        // 15+ Reviews Dr. Yasir aur Al-Fazl Clinic ke hawale se
+        const clinicReviews =[
+            "Dr. Yasir is the best dentist! Painless root canal at Al-Fazl Clinic. ✨",
+            "Got my braces checked by Dr. Yasir today. Great experience! 😊",
+            "Booked an appointment for scaling at Al-Fazl Dental Clinic.",
+            "Highly recommend Dr. Yasir! 💯 Very professional and kind.",
+            "Finally pain-free! Best dental treatment at Al-Fazl.",
+            "My smile looks perfect now 😍 Thanks to Dr. Yasir!",
+            "Just scheduled a routine checkup at Al-Fazl Clinic.",
+            "Got my dental implants done successfully by Dr. Yasir.",
+            "Very clean clinic and friendly staff at Al-Fazl! 🦷",
+            "Dr. Yasir explained everything perfectly. Highly recommended!",
+            "Al-Fazl Dental Clinic has the best and latest machines.",
+            "Got my kids' teeth checked by Dr. Yasir. He is so polite.",
+            "Teeth whitening results are amazing! Thank you Dr. Yasir.",
+            "Best filling treatment. Didn't feel any pain at Al-Fazl Clinic.",
+            "If you need a dentist, Dr. Yasir is the go-to person! 👍"
+        ];
+
+        function triggerNotification() {
+            // Random Patient (Boy/Girl) select karein
+            const randomPatient = patients[Math.floor(Math.random() * patients.length)];
+            // Random Review select karein
+            const randomMessage = clinicReviews[Math.floor(Math.random() * clinicReviews.length)];
+            
+            // Gender ke hisaab se Random Photo uthayein (Men/Women API se)
+            const randomAvatarId = Math.floor(Math.random() * 70) + 1;
+            const avatarUrl = `https://randomuser.me/api/portraits/${randomPatient.gender}/${randomAvatarId}.jpg`;
+
+            const container = document.getElementById('notification-container');
+            const notifElement = document.createElement('div');
+            notifElement.className = 'notification';
+            
+            // HTML Structure of Card
+            notifElement.innerHTML = `
+                <img src="${avatarUrl}" alt="Patient Photo">
+                <div class="notification-text">
+                    <h4>${randomPatient.name} <span class="verify-badge">✔</span></h4>
+                    <p>${randomMessage}</p>
+                </div>
+            `;
+
+            container.appendChild(notifElement);
+
+            // 6 second baad remove kar dein taake memory bhare na
+            setTimeout(() => {
+                notifElement.remove();
+            }, 6000);
+
+            // Time Delay Logic: (Kabhi 3-5 seconds mein, Kabhi 30-60 seconds mein)
+            let nextDelay;
+            let randomChoice = Math.random(); // 0 se 1 ke darmiyan number
+            
+            if (randomChoice < 0.5) {
+                // 50% chance hai ke jaldi aayega (3000ms se 5000ms = 3 se 5 second)
+                nextDelay = Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
+            } else {
+                // 50% chance hai ke late aayega (30000ms se 60000ms = 30 second se 1 minute)
+                nextDelay = Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000;
+            }
+
+            // Agla notification is time ke baad schedule ho jayega
+            setTimeout(triggerNotification, nextDelay);
+        }
+
+        // Page load hone ke 2 second baad pehla popup aayega
+        setTimeout(triggerNotification, 2000);
+
+    </script>
+</body>
+</html>
