@@ -1,0 +1,2167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Fazal Medical &amp; Dental Care | Johar Town Lahore</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+/* --- NEW MODERN & VIBRANT COLOR PALETTE --- */
+:root {
+  --primary-blue:#007bff; /* Vibrant Blue */
+  --secondary-green:#28a745; /* Energetic Green */
+  --accent-yellow:#ffc107; /* Warm Gold/Yellow */
+  --dark-shade:#2c3e50; /* Deep Slate Blue for texts/headers */
+  --light-bg-shade:#ecf0f1; /* Light Grey for sections */
+  --white-color:#fff;
+  --text-dark:#34495e; /* Darker text */
+  --text-muted:#7f8c8d; /* Muted text */
+  --border-light:#d5dbdb; /* Light border */
+  --error-red: #e74c3c; /* For emergency/alerts */
+}
+
+/* --- BASE STYLES --- */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;color:var(--text-dark);overflow-x:hidden;}
+::-webkit-scrollbar{width:8px;} /* Slightly wider scrollbar */
+::-webkit-scrollbar-thumb{background:var(--secondary-green);border-radius:4px;} /* Rounded thumb */
+::-webkit-scrollbar-track{background:var(--light-bg-shade);}
+
+/* --- GENERAL UTILITIES --- */
+.page{display:none !important;animation:fadeIn .6s ease-out;} /* Slightly longer fade for smoother feel */
+.page.active{display:block !important;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}} /* More pronounced fade-in */
+
+/* --- TOPBAR --- */
+.topbar{background:var(--dark-shade);padding:.7rem 5%;display:flex;justify-content:space-between;align-items:center;font-size:.88rem;color:rgba(255,255,255,.8);flex-wrap:wrap;gap:10px;box-shadow:0 1px 5px rgba(0,0,0,0.1);}
+.topbar a{color:var(--accent-yellow);text-decoration:none;margin-left:1.5rem;transition:color .3s ease;}
+.topbar a:hover{color:var(--white-color);}
+
+/* --- NAV --- */
+nav{position:sticky;top:0;z-index:1000;background:var(--white-color);box-shadow:0 4px 25px rgba(0,0,0,.1);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:82px;} /* Taller nav, more shadow */
+.logo{display:flex;align-items:center;gap:.9rem;text-decoration:none;cursor:pointer;}
+.logo-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--secondary-green),var(--primary-blue));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--white-color);box-shadow:0 5px 18px rgba(0,123,255,0.25);}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;color:var(--dark-shade);}
+.logo-sub{font-size:.8rem;color:var(--secondary-green);font-weight:600;}
+.nav-links{display:flex;list-style:none;align-items:center;gap:.7rem;}
+.nav-links a{color:var(--text-dark);text-decoration:none;font-size:.92rem;font-weight:600;padding:.7rem 1rem;border-radius:9px;transition:all .3s ease;cursor:pointer;display:block;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active-nav{color:var(--secondary-green);background:var(--light-bg-shade);box-shadow:0 3px 12px rgba(40,167,69,0.15);}
+.nav-links .nav-cta{background:var(--secondary-green);color:var(--white-color) !important;border-radius:50px;padding:.7rem 1.3rem;box-shadow:0 6px 18px rgba(40,167,69,0.35);}
+.nav-links .nav-cta:hover{background:var(--primary-blue);box-shadow:0 6px 22px rgba(0,123,255,0.4);transform:translateY(-2px);}
+.hamburger{display:none;font-size:2.2rem;cursor:pointer;color:var(--dark-shade);transition:transform .3s ease;}
+.hamburger:hover{transform:scale(1.1);}
+
+/* --- MOBILE OVERLAY (Minor adjustments for new colors) --- */
+.mob-overlay{
+  position:fixed;top:0;bottom:0;right:0;width: min(320px, 90vw); /* Wider for mobile */
+  background:var(--white-color);z-index:2000;display:flex;flex-direction:column;
+  align-items:flex-start;padding: 2rem 2rem;
+  transform:translateX(100%);transition:transform .4s ease-out;
+  box-shadow: -8px 0 30px rgba(0,0,0,0.2);
+}
+.mob-overlay.open{transform:translateX(0);}
+.mob-close{
+  position:absolute;top:2rem;right:2rem;font-size:2.4rem;color:var(--dark-shade);cursor:pointer;
+  transition:transform .3s ease;
+}
+.mob-close:hover{transform:rotate(90deg);}
+.mob-nav-list{
+  list-style:none;text-align:left;width:100%;margin-top: 4.5rem;
+}
+.mob-nav-list li{margin-bottom:1.2rem;}
+.mob-nav-list li a{
+  color:var(--primary-blue);font-size:1.3rem;font-weight:600;text-decoration:none;transition:all .2s ease;
+  cursor:pointer;display:block;padding:.7rem 1.1rem;border-radius:9px;
+}
+.mob-nav-list li a:hover{
+  background:var(--light-bg-shade);color:var(--secondary-green);
+}
+.mob-nav-list li a.mob-cta {
+  background:var(--secondary-green);color:var(--white-color) !important;
+  border-radius:50px;padding:.8rem 1.5rem;text-align:center;
+  margin-top: 2.5rem;font-size: 1.3rem;box-shadow:0 6px 18px rgba(40,167,69,0.35);
+}
+.mob-nav-list li a.mob-cta:hover {
+  background:var(--primary-blue);box-shadow:0 6px 22px rgba(0,123,255,0.4);transform:translateY(-2px);
+}
+
+/* --- EMERGENCY BAR --- */
+.emergency{background:var(--error-red);padding:1.2rem 5%;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.emergency p{color:var(--white-color);font-weight:600;font-size:1rem;}
+.emergency a{background:var(--white-color);color:var(--error-red);padding:.6rem 1.5rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:transform .3s ease, box-shadow .3s ease;}
+.emergency a:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+
+/* --- PAGE HEADER --- */
+.page-hdr{background:linear-gradient(135deg,var(--dark-shade),var(--primary-blue));padding:70px 5%;text-align:center;position:relative;overflow:hidden;}
+.page-hdr::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23FFFFFF" opacity="0.05"/></svg>') repeat;opacity:0.3;z-index:0;}
+.page-hdr h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;color:var(--white-color);margin-bottom:.9rem;line-height:1.2;position:relative;z-index:1;}
+.page-hdr h1 span{color:var(--accent-yellow);}
+.page-hdr p{color:rgba(255,255,255,.85);font-size:1.05rem;position:relative;z-index:1;}
+
+/* --- SECTION HELPERS (Updated with new colors and shadows) --- */
+.sec{padding:90px 5%;} /* Increased padding for more "rush" feel */
+.sec-gray{background:var(--light-bg-shade);padding:90px 5%;}
+.sec-dark{background:var(--dark-shade);padding:90px 5%;}
+.tag{display:inline-flex;align-items:center;gap:.7rem;color:var(--secondary-green);font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:3.5px;margin-bottom:1rem;}
+.tag::before{content:'';width:28px;height:2px;background:var(--secondary-green);}
+h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--dark-shade);margin-bottom:1.4rem;line-height:1.2;}
+h2 span{color:var(--primary-blue);}
+.sub{font-size:.98rem;color:var(--text-muted);line-height:1.9;margin-bottom:3.5rem;max-width:850px;margin-left:auto;margin-right:auto;}
+.btn{background:var(--secondary-green);color:var(--white-color);padding:1rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;transition:all .3s ease;border:none;cursor:pointer;box-shadow:0 8px 25px rgba(40,167,69,0.35);}
+.btn:hover{background:var(--primary-blue);transform:translateY(-4px);box-shadow:0 12px 35px rgba(0,123,255,0.45);}
+.btn-outline{background:transparent;color:var(--secondary-green);border:2px solid var(--secondary-green);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;transition:all .3s ease;cursor:pointer;}
+.btn-outline:hover{background:var(--secondary-green);color:var(--white-color);transform:translateY(-3px);box-shadow:0 6px 18px rgba(40,167,69,0.25);}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.95);border:2px solid rgba(255,255,255,.45);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;transition:all .3s ease;cursor:pointer;}
+.btn-ghost:hover{border-color:var(--accent-yellow);color:var(--accent-yellow);transform:translateY(-3px);box-shadow:0 6px 18px rgba(255,193,7,0.25);}
+
+/* --- HERO SECTION (Updated for "rush" and full-screen effect) --- */
+.hero{
+  min-height:100vh;background:none;display:flex;flex-direction: column;align-items:center;
+  justify-content: center;padding:60px 5%;position:relative;overflow:hidden;
+}
+.hero::before{content:'🦷';position:absolute;font-size:28rem;opacity:.07;right:-4rem;top:50%;transform:translateY(-50%) rotate(-20deg);z-index:2;color:var(--white-color);} /* Z-index added, larger, rotated */
+
+/* New Global Overlay for Hero Text Readability */
+.hero::after {
+  content: '';position: absolute;inset: 0;background: rgba(0,0,0,0.7); /* Darker translucent overlay */
+  z-index: 1;
+}
+
+/* Ensure other hero content is above the new overlay */
+.hero > *:not(.hero-image-carousel, .hero::before) {
+  position: relative;z-index: 2;
+}
+
+/* New Hero Elements */
+.hero-top-elements {
+  width: 100%;display: flex;flex-direction: column;align-items: center;z-index: 2;
+  position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%); /* Adjusted top for more space */
+  max-width: 900px;
+}
+
+.hero-text-rotator {
+  text-align: center;height: 4.5rem;overflow: hidden;
+  font-family:'Playfair Display',serif;font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;color: var(--white-color);position: relative;z-index: 2;
+  text-shadow: 0 0 20px rgba(0,0,0,0.9);line-height: 1.2;white-space: nowrap;
+}
+.hero-text-rotator span {
+  position: absolute;top: 0;left: 0;width: 100%;opacity: 0;
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out; /* Added transform for smoother rotation */
+  display: flex;align-items: center;justify-content: center;height: 100%;
+  transform: translateY(30px); /* Start slightly below */
+}
+.hero-text-rotator span.active-text {
+  opacity: 1;transform: translateY(0); /* Move to original position */
+}
+
+.hero-image-carousel {
+  position: absolute;inset: 0;width: 100%;height: 100%;max-width: none;
+  border-radius: 0;overflow: hidden;box-shadow: none;z-index: 0;
+}
+.hero-carousel-item {
+  position: absolute;top: 0;left: 0;width: 100%;height: 100%;
+  background-size: cover;background-position: center;opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out; /* Slower and added transform */
+  display: flex;align-items: flex-end;justify-content: flex-start;padding: 1rem;
+  transform: scale(1.08); /* Slight zoom-in effect */
+}
+.hero-carousel-item.active-slide {
+  opacity: 1;transform: scale(1);
+}
+.hero-carousel-item-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.92), transparent 65%); /* Darker gradient for text at bottom */
+  width: 100%;height: 100%;position: absolute;top: 0;left: 0;
+}
+.hero-carousel-doctor-info {
+  position: relative;z-index: 1;color: var(--white-color);text-shadow: 0 0 12px rgba(0,0,0,0.9);
+  padding: 2rem; /* Increased padding */
+}
+.hero-carousel-doctor-info h3 {
+  font-family:'Playfair Display',serif;font-size: 1.8rem;font-weight: 700;margin-bottom: .5rem;
+}
+.hero-carousel-doctor-info p {
+  font-size: 1.15rem;opacity: .98;
+}
+
+.hero-content-wrapper {
+  width: 100%;display: flex;flex-direction: column;align-items: center;
+  text-align: center;gap: 3rem;z-index: 2;margin-top: 28vh; /* Push down content more */
+  padding-bottom: 5rem;max-width: 1100px;
+}
+
+.hero-badge{display:inline-flex;align-items:center;gap:.7rem;background:rgba(40,167,69,.18);border:1px solid rgba(40,167,69,.35);padding:.6rem 1.3rem;border-radius:50px;font-size:.85rem;font-weight:700;color:var(--secondary-green);margin-bottom:2rem;z-index:2;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:800;color:var(--white-color);line-height:1.15;margin-bottom:1.8rem;text-shadow: 0 0 20px rgba(0,0,0,0.9);z-index:2;}
+.hero h1 span{color:var(--accent-yellow);z-index:2;}
+.hero-desc{color:rgba(255,255,255,.9);font-size:1.1rem;line-height:2;margin-bottom:3rem;max-width:600px;text-shadow: 0 0 12px rgba(0,0,0,0.8);z-index:2; margin-left: auto; margin-right: auto;}
+.hero-btns{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:3.5rem;z-index:2; justify-content: center;}
+.hero-nums{display:flex;gap:3.5rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,.25);z-index:2; justify-content: center;}
+.hnum-val{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:800;color:var(--accent-yellow);z-index:2;}
+.hnum-lbl{font-size:.82rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:2px;margin-top:.5rem;z-index:2;}
+
+/* --- APPOINTMENT CARD (Styling adjusted for forms to be generic) --- */
+.appt-card{background:var(--white-color);border-radius:20px;padding:2.8rem;box-shadow:0 25px 60px rgba(0,0,0,.25);z-index:2;border:1.5px solid var(--border-light);}
+.appt-ttl{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark-shade);margin-bottom:2rem;text-align:center;}
+.fg{margin-bottom:1.3rem;}
+.fg label{display:block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--text-muted);margin-bottom:.6rem;}
+.fg input,.fg select{width:100%;padding:.9rem 1.3rem;border:1.5px solid var(--border-light);border-radius:12px;font-family:'Outfit',sans-serif;font-size:.95rem;color:var(--text-dark);background:var(--light-bg-shade);outline:none;transition:border-color .3s ease, box-shadow .3s ease;}
+.fg input:focus,.fg select:focus{border-color:var(--primary-blue);box-shadow:0 0 0 4px rgba(0,123,255,0.25);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+
+/* --- TICKER --- */
+.ticker{background:var(--primary-blue);padding:.9rem 0;overflow:hidden;box-shadow:inset 0 3px 12px rgba(0,0,0,0.15);}
+.tick-in{display:inline-flex;animation:tickAnim 35s linear infinite;gap:4rem;white-space:nowrap;}
+.tick-item{font-size:.9rem;font-weight:700;color:var(--white-color);text-transform:uppercase;letter-spacing:3px;}
+@keyframes tickAnim{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* --- STATS --- */
+.stats-bar{background:linear-gradient(135deg,var(--primary-blue),var(--secondary-green));padding:4rem 5%;box-shadow:0 -6px 25px rgba(0,0,0,0.18);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;max-width:1000px;margin:0 auto;text-align:center;}
+.snum{font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--accent-yellow);}
+.slbl{font-size:.85rem;color:rgba(255,255,255,.75);margin-top:.5rem;text-transform:uppercase;letter-spacing:2px;}
+
+/* --- GRIDS --- */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:3.5rem;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:2.8rem;margin-top:3.5rem;}
+.g6{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;margin-top:3.5rem;}
+
+/* --- SERVICE CARD --- */
+.svc-card{background:var(--white-color);border-radius:18px;padding:2.2rem;border:1.5px solid var(--border-light);transition:all .3s ease;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.svc-card:hover{border-color:var(--secondary-green);transform:translateY(-8px);box-shadow:0 20px 45px rgba(40,167,69,0.2);}
+.svc-icon{width:64px;height:64px;background:var(--light-bg-shade);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:1.3rem;transition:all .3s ease;color:var(--primary-blue);}
+.svc-card:hover .svc-icon{background:var(--secondary-green);color:var(--white-color);transform:rotate(8deg);}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--dark-shade);margin-bottom:.7rem;}
+.svc-desc{font-size:.9rem;color:var(--text-muted);line-height:1.8;}
+.svc-price{margin-top:1.1rem;font-size:.95rem;font-weight:700;color:var(--primary-blue);}
+.svc-card .more{display:inline-block;margin-top:1rem;font-size:.9rem;font-weight:700;color:var(--secondary-green);transition:color .3s ease, transform .3s ease;}
+.svc-card .more:hover{color:var(--primary-blue);transform:translateX(5px);}
+
+/* --- WHY CARD (New expanded why-card style) --- */
+.why-exp-card{background:var(--white-color);border-radius:18px;border:1.5px solid var(--border-light);transition:all .3s ease;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.why-exp-card:hover{border-color:var(--primary-blue);box-shadow:0 10px 30px rgba(0,123,255,0.15);}
+.why-exp-card.open{border-color:var(--secondary-green);box-shadow:0 12px 35px rgba(40,167,69,0.25);}
+.why-exp-header{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;cursor:pointer;gap:1.5rem;transition:background-color .3s ease;}
+.why-exp-card.open .why-exp-header{background:var(--light-bg-shade);}
+.why-exp-left{display:flex;align-items:center;gap:1.1rem;}
+.why-exp-ico{width:50px;height:50px;background:var(--light-bg-shade);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;transition:all .3s ease;color:var(--primary-blue);}
+.why-exp-card.open .why-exp-ico{background:var(--secondary-green);color:var(--white-color);transform:rotate(15deg);}
+.why-exp-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark-shade);}
+.why-exp-short{font-size:.85rem;color:var(--text-muted);margin-top:.25rem;}
+.why-exp-tog{width:30px;height:30px;background:var(--light-bg-shade);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary-blue);font-size:1rem;flex-shrink:0;transition:all .3s ease;font-weight:700;}
+.why-exp-card.open .why-exp-tog{background:var(--secondary-green);color:var(--white-color);transform:rotate(45deg);}
+.why-exp-body{display:none;padding:0 1.8rem 1.6rem;border-top:1.5px solid var(--border-light);animation:slideDown .5s ease-out;}
+.why-exp-card.open .why-exp-body{display:block;}
+.why-exp-body p{font-size:.92rem;color:var(--text-dark);line-height:1.9;margin-top:1.3rem;}
+.why-exp-body ul{list-style:none;margin-top:1.1rem;}
+.why-exp-body ul li{font-size:.9rem;color:var(--text-dark);padding:.5rem 0;display:flex;align-items:flex-start;gap:.9rem;}
+.why-exp-body ul li::before{content:'✓';color:var(--secondary-green);font-weight:700;flex-shrink:0;font-size:1.1rem;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-15px);}to{opacity:1;transform:translateY(0);}}
+
+/* --- DOCTOR CARD --- */
+.doc-card{background:var(--white-color);border-radius:18px;overflow:hidden;border:1.5px solid var(--border-light);transition:all .3s ease;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.doc-card:hover{border-color:var(--primary-blue);transform:translateY(-6px);box-shadow:0 20px 45px rgba(0,123,255,0.15);}
+.doc-img{height:220px;background:linear-gradient(135deg,var(--light-bg-shade),#e0f2f4);display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;background-size: cover; background-position: center;}
+.doc-badge{position:absolute;bottom:1.3rem;right:1.3rem;background:var(--secondary-green);color:var(--white-color);font-size:.8rem;font-weight:700;padding:.4rem .9rem;border-radius:50px;box-shadow:0 3px 10px rgba(0,0,0,0.25);}
+.doc-body{padding:1.6rem;}
+.doc-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark-shade);margin-bottom:.5rem;}
+.doc-spec{font-size:.9rem;color:var(--primary-blue);font-weight:600;margin-bottom:.8rem;}
+.doc-exp{font-size:.9rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6;}
+.doc-stars{font-size:.95rem;color:var(--accent-yellow);margin-bottom:1.2rem;}
+
+/* --- TREAT ITEM --- */
+.treat-item{background:var(--light-bg-shade);border-radius:16px;padding:1.6rem 1.1rem;text-align:center;transition:all .3s ease;cursor:pointer;border:1.5px solid transparent; display: flex; flex-direction: column; align-items: center;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
+.treat-item:hover{background:var(--white-color);border-color:var(--secondary-green);transform:translateY(-6px);box-shadow:0 10px 25px rgba(40,167,69,0.15);}
+.treat-item img {
+    width:70px;height:70px;border-radius:16px;object-fit:cover;margin:0 auto 1.1rem;display:block;
+    box-shadow:0 6px 15px rgba(0,0,0,0.18);transition:transform .3s ease;
+}
+.treat-item:hover img{transform:scale(1.08);}
+.tn{font-size:.95rem;font-weight:600;color:var(--dark-shade);}
+
+/* --- REVIEW CARD --- */
+.rev-card{background:var(--white-color);border-radius:18px;padding:2.2rem;border:1.5px solid var(--border-light);transition:all .3s ease;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.rev-card:hover{border-color:var(--secondary-green);transform:translateY(-6px);box-shadow:0 10px 25px rgba(40,167,69,0.15);}
+.rev-stars{color:var(--accent-yellow);font-size:1.05rem;margin-bottom:1.1rem;}
+.rev-txt{font-size:.95rem;line-height:1.9;color:var(--text-dark);font-style:italic;margin-bottom:1.3rem;}
+.rev-auth{display:flex;align-items:center;gap:1rem;}
+.rev-av{width:48px;height:48px;background:linear-gradient(135deg,var(--primary-blue),var(--secondary-green));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white-color);font-weight:700;font-size:.95rem;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+.rev-name{font-size:.95rem;font-weight:700;color:var(--dark-shade);}
+.rev-src{font-size:.82rem;color:var(--text-muted);}
+
+/* --- AWARD CARD --- */
+.award-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:2.5rem;text-align:center;transition:all .3s ease;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.award-card:hover{background:rgba(255,255,255,.18);border-color:var(--accent-yellow);transform:translateY(-6px);box-shadow:0 12px 35px rgba(255,193,7,0.25);}
+.award-card i{font-size:3.2rem;color:var(--accent-yellow);margin-bottom:1.3rem;display:block;}
+.award-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white-color);margin-bottom:.7rem;}
+.award-card p{font-size:.92rem;color:rgba(255,255,255,.75);line-height:1.8;}
+.award-card img{width:100%; height:220px; object-fit:cover; border-radius:14px; margin-bottom:1.8rem; display:block;box-shadow:0 8px 25px rgba(0,0,0,0.25);}
+
+/* --- PATIENT CARD --- */
+.pat-card{background:var(--white-color);border:1.5px solid var(--border-light);border-radius:18px;padding:2.5rem;transition:all .3s ease;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.pat-card:hover{border-color:var(--secondary-green);box-shadow:0 10px 25px rgba(40,167,69,0.15);}
+.pat-card i{font-size:2.8rem;color:var(--primary-blue);margin-bottom:1.3rem;display:block;}
+.pat-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark-shade);margin-bottom:.9rem;}
+.pat-card p{font-size:.95rem;color:var(--text-muted);line-height:1.9;}
+.pat-link{display:inline-flex;align-items:center;gap:.6rem;color:var(--secondary-green);text-decoration:none;font-weight:600;margin-top:1.3rem;cursor:pointer;font-size:1rem;transition:color .3s ease, transform .3s ease;}
+.pat-link:hover{color:var(--primary-blue);transform:translateX(6px);}
+
+/* --- FAQ --- */
+.faq-item{background:var(--white-color);border-radius:14px;margin-bottom:1.1rem;border:1.5px solid var(--border-light);overflow:hidden;transition:border-color .3s ease, box-shadow .3s ease;}
+.faq-item:hover{border-color:var(--primary-blue);box-shadow:0 6px 18px rgba(0,0,0,0.1);}
+.faq-item.open{border-color:var(--secondary-green);box-shadow:0 8px 22px rgba(40,167,69,0.15);}
+.faq-q{padding:1.4rem 2rem;font-weight:600;color:var(--dark-shade);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1rem;background:var(--light-bg-shade);transition:background-color .3s ease;}
+.faq-item.open .faq-q{background:var(--white-color);}
+.faq-tog{color:var(--primary-blue);font-size:1.5rem;transition:transform .3s ease;}
+.faq-item.open .faq-tog{transform:rotate(45deg);color:var(--secondary-green);}
+.faq-a{display:none;padding:0 2rem 1.4rem;font-size:.92rem;color:var(--text-muted);line-height:1.9;animation:slideDown .5s ease-out;}
+.faq-item.open .faq-a{display:block;}
+
+/* --- GALLERY --- */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:1.2rem;margin-top:3.5rem;}
+.gal-item{border-radius:14px;background:var(--light-bg-shade);border:1.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;font-size:3.2rem;cursor:pointer;overflow:hidden;position:relative;background-size: cover; background-position: center;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.gal-item::after{content:'🔍';position:absolute;inset:0;background:rgba(44,62,80,.8);display:flex;align-items:center;justify-content:center;font-size:2.2rem;opacity:0;transition:opacity .3s ease;border-radius:14px;color:var(--white-color);}
+.gal-item:hover::after{opacity:1;}
+.gal-item:first-child{grid-column:span 2;grid-row:span 2;font-size:6.5rem;}
+
+/* --- TIMING --- */
+.tc{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:1.6rem .7rem;text-align:center;transition:all .3s ease;cursor:pointer;}
+.tc:hover{background:rgba(255,255,255,.18);border-color:var(--accent-yellow);transform:translateY(-4px);}
+.tc-day{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.6);margin-bottom:.7rem;}
+.tc-time{font-size:.9rem;color:var(--white-color);font-weight:600;line-height:1.7;}
+.tc-closed{color:var(--error-red) !important;font-weight:700;}
+.t7{display:grid;grid-template-columns:repeat(7,1fr);gap:1.1rem;margin-top:3.5rem;}
+
+/* --- CONTACT --- */
+.cgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:4.5rem;align-items:start;}
+.c-items{display:flex;flex-direction:column;gap:1.1rem;margin-top:2.2rem;}
+.c-item{display:flex;align-items:center;gap:1.3rem;padding:1.3rem 1.6rem;background:var(--light-bg-shade);border-radius:14px;text-decoration:none;transition:all .3s ease;border:1.5px solid transparent;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
+.c-item:hover{border-color:var(--primary-blue);background:var(--white-color);transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,0.1);}
+.c-ico{width:50px;height:50px;background:var(--primary-blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;color:var(--white-color);box-shadow:0 3px 12px rgba(0,123,255,0.25);}
+.c-lbl{font-size:.8rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;}
+.c-val{font-size:.95rem;color:var(--dark-shade);font-weight:700;}
+.map-ph{height:250px;background:var(--light-bg-shade);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-top:2rem;flex-direction:column;gap:.7rem;font-size:3rem;border:1.5px solid var(--border-light);overflow:hidden;}
+.map-ph p{font-size:.9rem;color:var(--text-muted);}
+.cf{background:var(--dark-shade);border-radius:22px;padding:2.8rem;box-shadow:0 25px 60px rgba(0,0,0,.3);}
+.cf-ttl{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--white-color);margin-bottom:1.8rem;}
+.cfl{display:block;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,.65);margin-bottom:.6rem;}
+.cfi{width:100%;padding:.9rem 1.3rem;border:1.5px solid rgba(255,255,255,.25);border-radius:12px;font-family:'Outfit',sans-serif;font-size:.95rem;color:var(--white-color);background:rgba(255,255,255,.1);outline:none;transition:border-color .3s ease, box-shadow .3s ease;margin-bottom:1.3rem;}
+.cfi:focus{border-color:var(--secondary-green);box-shadow:0 0 0 4px rgba(40,167,69,0.25);}
+.cfi option{background:var(--dark-shade);}
+.cfrow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+textarea.cfi{resize:vertical;height:120px;}
+
+/* --- ABOUT --- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-img{height:480px;background:linear-gradient(135deg,var(--light-bg-shade),#e0f2f4);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:10rem;position:relative;border:1.5px solid var(--border-light); background-size: cover; background-position: center;box-shadow:0 12px 35px rgba(0,0,0,0.15);}
+.about-badge{position:absolute;bottom:-1.8rem;right:-1.8rem;background:var(--primary-blue);color:var(--white-color);width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 15px 40px rgba(0,123,255,.5);text-align:center;border:4px solid var(--white-color);}
+.ab-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;line-height:1;}
+.ab-txt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;opacity:.95;}
+.about-pts{display:flex;flex-direction:column;gap:.9rem;margin:2rem 0;}
+.apt{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;font-weight:600;color:var(--text-dark);}
+.apt-chk{width:26px;height:26px;background:var(--secondary-green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white-color);font-size:.9rem;flex-shrink:0;}
+
+/* --- DETAIL PAGE --- */
+.detail-wrap{max-width:960px;margin:0 auto;padding:50px 5%;}
+.detail-img{width:100%;height:320px;background:var(--light-bg-shade);border-radius:16px;margin-bottom:2.8rem;display:flex;align-items:center;justify-content:center;font-size:7rem;border:1.5px solid var(--border-light); background-size: cover; background-position: center; transition: background-image .5s ease, font-size .5s ease;}
+.detail-desc{font-size:1.05rem;color:var(--text-dark);line-height:2;margin-bottom:2.8rem;}
+.detail-h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--primary-blue);margin:2.5rem 0 1.6rem;padding-bottom:.9rem;border-bottom:1.5px solid var(--border-light);}
+.detail-ul{list-style:none;padding-left:28px;margin-bottom:2rem;}
+.detail-ul li{position:relative;margin-bottom:1rem;font-size:1rem;color:var(--text-dark);}
+.detail-ul li::before{content:'✓';position:absolute;left:-28px;color:var(--secondary-green);font-weight:700;font-size:1.2rem;}
+.detail-book{text-align:center;margin-top:4rem;padding:3.2rem;background:var(--light-bg-shade);border-radius:18px;box-shadow:0 12px 35px rgba(0,0,0,0.15);}
+.detail-book h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--dark-shade);margin-bottom:1.1rem;}
+.detail-book p{color:var(--text-muted);margin-bottom:2rem;font-size:1rem;}
+.back-btn{display:inline-flex;align-items:center;gap:.7rem;margin-top:2.8rem;color:var(--primary-blue);text-decoration:none;font-weight:600;font-size:1.05rem;cursor:pointer;transition:color .3s ease, transform .3s ease;}
+.back-btn:hover{color:var(--secondary-green);transform:translateX(-6px);}
+
+/* --- BOOK PAGE --- */
+.book-card{background:var(--white-color);border-radius:20px;padding:3rem;max-width:700px;margin:50px auto;box-shadow:0 12px 35px rgba(0,0,0,.15);border:1.5px solid var(--border-light);}
+.bk-ttl{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--dark-shade);margin-bottom:2rem;text-align:center;}
+.bkl{display:block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--text-muted);margin-bottom:.6rem;}
+.bki{width:100%;padding:.9rem 1.3rem;border:1.5px solid var(--border-light);border-radius:12px;font-family:'Outfit',sans-serif;font-size:.95rem;color:var(--text-dark);background:var(--light-bg-shade);outline:none;transition:border-color .3s ease, box-shadow .3s ease;margin-bottom:1.3rem;}
+.bki:focus{border-color:var(--primary-blue);box-shadow:0 0 0 4px rgba(0,123,255,0.25);}
+.bkrow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+textarea.bki{resize:vertical;height:130px;}
+
+/* --- FOOTER --- */
+footer{background:var(--dark-shade);padding:5rem 5% 2.8rem;color:rgba(255,255,255,.7);box-shadow:0 -6px 25px rgba(0,0,0,0.25);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--white-color);margin-bottom:1.3rem;}
+.f-logo span{color:var(--accent-yellow);}
+.f-desc{font-size:.9rem;line-height:1.9;margin-bottom:2rem;}
+.f-socials{display:flex;gap:.9rem;}
+.fsoc{width:44px;height:44px;background:rgba(255,255,255,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;text-decoration:none;color:var(--white-color);transition:all .3s ease;}
+.fsoc:hover{background:var(--secondary-green);transform:translateY(-3px);box-shadow:0 6px 12px rgba(0,0,0,0.25);}
+.f-hdr{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white-color);margin-bottom:1.3rem;}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:.8rem;}
+.f-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;transition:color .3s ease, transform .3s ease;display:flex;align-items:center;gap:.6rem;cursor:pointer;}
+.f-links a:hover{color:var(--accent-yellow);transform:translateX(6px);}
+.f-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.85rem;flex-wrap:wrap;gap:15px;}
+
+/* --- WA - WhatsApp float button (REPOSITIONED) --- */
+.wa{
+  position:fixed;
+  top:50%; /* Center vertically */
+  right:1.8rem; /* Fixed to the right */
+  transform:translateY(-50%); /* Adjust for perfect vertical centering */
+  width:64px; /* Slightly larger */
+  height:64px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem; /* Larger icon */
+  box-shadow:0 8px 30px rgba(37,211,102,.55);
+  text-decoration:none;
+  z-index:999;
+  animation:waPop 2.8s ease-in-out infinite; /* Slower animation */
+  color:var(--white-color);
+  border:4px solid var(--white-color); /* Added border */
+}
+/* WhatsApp Notification Badge */
+.wa::after {
+  content: '1';
+  position: absolute;
+  top: -6px; /* Adjust as needed */
+  right: -6px; /* Adjust as needed */
+  background-color: var(--error-red);
+  color: var(--white-color);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 26px; /* Size of the badge */
+  height: 26px; /* Size of the badge */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.45);
+  z-index: 1000;
+}
+@keyframes waPop{0%,100%{transform:translateY(-50%) scale(1);}50%{transform:translateY(-50%) scale(1.18);}}
+
+/* --- SPLASH SCREEN (Completely redesigned) --- */
+#splash{
+  position:fixed;inset:0;
+  background:linear-gradient(135deg, var(--dark-shade) 0%, #1a3a4a 100%); /* New dark gradient background */
+  z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity 1.2s ease-out,visibility 1.2s ease-out; /* Slower transition for fade out */
+  color:var(--white-color);
+}
+#splash.hide{opacity:0;visibility:hidden;}
+.sp-icon{font-size:7.5rem;animation:spB 2s ease-in-out infinite alternate;color:var(--accent-yellow);text-shadow:0 0 20px rgba(255,193,7,0.5);}
+@keyframes spB{from{transform:translateY(0);}to{transform:translateY(-18px);}}
+
+.sp-name{font-family:'Playfair Display',serif;font-size:clamp(2.8rem, 5vw, 4.2rem);font-weight:800;margin-top:2rem;display:flex;gap:12px;overflow:hidden;}
+.sp-name span {
+  opacity: 0;
+  transform: translateX(0); /* Default, will be overridden by specific animations */
+  animation-fill-mode: forwards;
+  position: relative;
+  display: inline-block; /* Essential for span animations */
+  text-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.sp-name span:nth-child(1) { /* Al- */
+  color: #FFD700; /* Gold */
+  animation: slideInFromLeft 0.9s ease-out 0.8s forwards;
+}
+.sp-name span:nth-child(2) { /* Fazal */
+  color: var(--secondary-green); /* Energetic Green */
+  animation: slideInFromTop 0.9s ease-out 1.3s forwards;
+}
+.sp-name span:nth-child(3) { /* Dental */
+  color: var(--primary-blue); /* Vibrant Blue */
+  animation: slideInFromRight 0.9s ease-out 1.8s forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% { opacity: 0; transform: translateX(-120px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromRight {
+  0% { opacity: 0; transform: translateX(120px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromTop {
+  0% { opacity: 0; transform: translateY(-120px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.sp-sub{color:rgba(255,255,255,.7);margin-top:1.2rem;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;animation:fadeInUp 0.9s ease-out 2.3s forwards;opacity:0;}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- PRIVACY MODAL (Minor color adjustments) --- */
+.priv-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .5s ease;}
+.priv-overlay.show{opacity:1;visibility:visible;}
+.priv-box{background:var(--white-color);padding:3rem;border-radius:18px;max-width:650px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(35px);transition:transform .5s ease;box-shadow:0 18px 45px rgba(0,0,0,0.4);}
+.priv-overlay.show .priv-box{transform:translateY(0);}
+.priv-box h3{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--dark-shade);margin-bottom:1.3rem;padding-bottom:1rem;border-bottom:1.5px solid var(--border-light);}
+.priv-box p{font-size:.95rem;color:var(--text-dark);margin-bottom:1.1rem;line-height:1.8;}
+.priv-actions{margin-top:2rem;display:flex;justify-content:flex-end;gap:1.2rem;}
+.priv-actions button{padding:.9rem 1.8rem;border:none;border-radius:12px;font-weight:700;cursor:pointer;transition:all .3s ease;font-size:.95rem;}
+.priv-accept{background:var(--secondary-green);color:var(--white-color);box-shadow:0 5px 18px rgba(40,167,69,0.35);}
+.priv-accept:hover{background:var(--primary-blue);box-shadow:0 7px 22px rgba(0,123,255,0.4);}
+.priv-later{background:var(--light-bg-shade);color:var(--dark-shade);box-shadow:0 5px 12px rgba(0,0,0,0.15);}
+.priv-later:hover{background:var(--border-light);}
+
+/* --- VIDEO SECTIONS --- */
+.video-section {
+  padding: 90px 5%;
+  text-align: center;
+  background: var(--white-color);
+}
+.video-section-left-aligned,
+.video-section-right-aligned {
+  display: flex;
+  align-items: center;
+  gap: 4rem; /* More space between text and video */
+  padding: 90px 5%;
+}
+.video-section-left-aligned {
+  background: var(--light-bg-shade);
+}
+.video-section-right-aligned {
+  background: var(--white-color);
+  flex-direction: row-reverse; /* Video on right, text on left */
+}
+.video-section-text-content {
+  flex: 1; /* Take available space */
+  max-width: 600px;
+}
+.video-section-left-aligned .video-wrapper,
+.video-section-right-aligned .video-wrapper {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 650px; /* Larger video frame */
+}
+.video-section-left-aligned .sub,
+.video-section-left-aligned h2 {
+  text-align: left;
+}
+.video-section-left-aligned .tag {
+  justify-content: flex-start;
+}
+.video-section-right-aligned .sub,
+.video-section-right-aligned h2 {
+  text-align: right;
+}
+.video-section-right-aligned .tag {
+  justify-content: flex-end;
+}
+.video-section-right-aligned .tag::before {
+    order: 2;
+    margin-left: 0.7rem;
+}
+
+/* For main centered video sections */
+.video-card {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* Max width for embedded video */
+  aspect-ratio: 16 / 9; /* Ensure aspect ratio */
+  margin: 3.5rem auto 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  border: 2px solid var(--border-light);
+}
+.video-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  border-color: var(--primary-blue);
+}
+.video-card::before {
+  content: '\f144'; /* Font Awesome Play icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  font-size: 5rem; /* Larger play icon */
+  color: var(--white-color);
+  background: rgba(0,0,0,0.7);
+  border-radius: 50%;
+  width: 100px; /* Larger icon container */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.95;
+  transition: opacity .3s ease, transform .3s ease;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.video-card:hover::before {
+  opacity: 1;
+  transform: scale(1.15);
+}
+.video-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 75%); /* Darker overlay */
+}
+.video-card-info {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 1.8rem;
+    color: var(--white-color);
+    text-align: left;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+.video-card-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.video-card-info p {
+    font-size: 1.05rem;
+    opacity: 0.98;
+}
+
+/* --- VIDEO MODAL --- */
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95); /* Even darker background */
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease;
+}
+.video-modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+.video-modal-content {
+  position: relative;
+  width: 95%; /* Wider modal */
+  max-width: 1100px; /* Larger max-width */
+  aspect-ratio: 16 / 9; /* Standard video aspect ratio */
+  background: var(--dark-shade);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+  transform: scale(0.85); /* Start smaller */
+  transition: transform .5s ease;
+}
+.video-modal-overlay.show .video-modal-content {
+  transform: scale(1);
+}
+.video-modal-close {
+  position: absolute;
+  top: -45px; /* Position further above the modal content */
+  right: 0;
+  font-size: 3rem; /* Larger close icon */
+  color: var(--white-color);
+  cursor: pointer;
+  transition: color .3s ease, transform .3s ease;
+  z-index: 10001;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.video-modal-close:hover {
+  color: var(--error-red);
+  transform: rotate(90deg);
+}
+.video-modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+}
+.video-grid .video-card {
+    max-width: none; /* Override max-width for grid items */
+    margin: 0;
+    height: 250px; /* Fixed height for grid videos */
+}
+
+/* Responsive adjustments for video sections */
+@media(max-width:1024px) {
+  .video-section-left-aligned,
+  .video-section-right-aligned {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .video-section-left-aligned .video-wrapper,
+  .video-section-right-aligned .video-wrapper {
+    max-width: 100%; /* Full width for video wrapper on smaller screens */
+  }
+  .video-section-left-aligned .tag,
+  .video-section-right-aligned .tag {
+    justify-content: center;
+  }
+  .video-section-left-aligned .sub,
+  .video-section-left-aligned h2,
+  .video-section-right-aligned .sub,
+  .video-section-right-aligned h2 {
+    text-align: center;
+  }
+  .video-section-right-aligned .tag::before {
+    order: 0; /* Reset order for icon */
+    margin-right: 0.7rem;
+    margin-left: 0;
+  }
+}
+@media(max-width:768px) {
+  .video-card {
+    height: 300px;
+    margin: 3rem auto 0;
+  }
+  .video-card::before {
+    font-size: 4rem;
+    width: 80px;
+    height: 80px;
+  }
+  .video-card-info h3 {
+    font-size: 1.4rem;
+  }
+  .video-card-info p {
+    font-size: 0.95rem;
+  }
+  .video-modal-close {
+      top: -35px;
+      font-size: 2.5rem;
+      right: 10px;
+  }
+  .video-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+  }
+  .video-grid .video-card {
+      height: 200px;
+  }
+}
+
+@media(max-width:480px) {
+    .video-card {
+        height: 220px;
+        margin: 2.5rem auto 0;
+    }
+    .video-card::before {
+        font-size: 3.5rem;
+        width: 70px;
+        height: 70px;
+    }
+    .video-card-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
+    .video-card-info p {
+        font-size: 0.85rem;
+    }
+    .video-modal-close {
+        top: -30px;
+        font-size: 2rem;
+        right: 5px;
+    }
+    .video-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 1rem;
+    }
+    .video-grid .video-card {
+        height: 180px;
+    }
+}
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media(max-width:1024px){
+  .g4{grid-template-columns:repeat(2,1fr);}
+  .g6{grid-template-columns:repeat(3,1fr);}
+  .t7{grid-template-columns:repeat(4,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .hero-content-wrapper{ max-width: 100%;}
+  .hero-text-rotator {font-size: clamp(1.8rem, 3.5vw, 2.8rem);height:3.5rem;} /* Adjusted for clarity */
+  .hero-carousel-doctor-info h3 {font-size: 1.4rem;}
+  .hero-carousel-doctor-info p {font-size: .95rem;}
+  .cgrid{grid-template-columns:1fr;} /* Stack contact sections */
+  .about-grid{gap:3rem;}
+  .page-hdr h1{font-size:clamp(1.8rem,3.5vw,2.6rem);}
+  .sec, .sec-gray, .sec-dark {padding: 70px 5%;} /* Reduced section padding */
+}
+@media(max-width:768px){
+  nav .nav-links{display:none;}
+  .hamburger{display:block;}
+  .about-grid{grid-template-columns:1fr;}
+  .g3,.g2{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;}
+  .gal-item:first-child{grid-column:span 2;font-size:5rem;}
+  .frow,.cfrow,.bkrow{grid-template-columns:1fr;}
+  .g6{grid-template-columns:repeat(2,1fr);}
+  .t7{grid-template-columns:repeat(3,1fr);}
+  .hero-top-elements {width: 95%;}
+  .hero-text-rotator {font-size: clamp(1.5rem, 5vw, 2.5rem);height:3rem;}
+  .hero-content-wrapper {margin-top: 15vh;}
+  .hero-desc {font-size: .95rem;}
+  .hero h1 {font-size:clamp(2rem,6vw,3.2rem);}
+  .hero-nums {flex-wrap: wrap; justify-content: center; gap: 2rem; padding-top: 1.5rem;}
+  .hnum-val {font-size: 2.2rem;}
+  .hnum-lbl {font-size: .75rem;}
+  .topbar {font-size: .8rem; justify-content: center;}
+  .topbar a {margin-left: .9rem;}
+  .logo-name {font-size: 1.1rem;}
+  .logo-sub {font-size: .7rem;}
+  .logo-icon {width: 44px; height: 44px; font-size: 1.3rem;}
+  .wa {width: 56px; height: 56px; font-size: 1.6rem; right: 1.2rem;}
+  .wa::after {width: 22px; height: 22px; font-size: .8rem; top: -4px; right: -4px;}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr;}
+  .hero-nums{gap:1.2rem;}
+  .g6{grid-template-columns:1fr;} /* Single column for treatments */
+  .t7{grid-template-columns:repeat(2,1fr);}
+  .hero-text-rotator {font-size: clamp(1.4rem, 6.5vw, 2.2rem);height:2.8rem;white-space:normal;} /* Allow wrap on very small screens */
+  .hero-carousel-doctor-info h3 {font-size: 1.3rem; margin-bottom: .2rem;}
+  .hero-carousel-doctor-info p {font-size: .9rem;}
+  .hero-content-wrapper { margin-top: 12vh; padding-bottom: 2.5rem; }
+  .hero-badge {font-size: .75rem; padding: .5rem 1rem;}
+  .hero h1 {font-size:clamp(2rem,7.5vw,3rem);}
+  .hero-desc {font-size: .92rem; margin-bottom: 2rem;}
+  .hero-btns {flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;}
+  .btn, .btn-outline, .btn-ghost {width: 100%; justify-content: center;}
+  .page-hdr {padding: 50px 5%;}
+  .sec, .sec-gray, .sec-dark {padding: 50px 5%;}
+  h2 {font-size: clamp(1.8rem, 6.5vw, 2.5rem);}
+  .appt-card, .book-card, .cf {padding: 2rem;}
+  .appt-ttl, .bk-ttl, .cf-ttl {font-size: 1.2rem; margin-bottom: 1.5rem;}
+  .c-item {flex-direction: column; align-items: flex-start; gap: .6rem; padding: 1.1rem;}
+  .c-ico {margin-bottom: .6rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sp-icon">🦷</div>
+  <div class="sp-name"><span>Al-</span><span>Fazal </span><span>Dental</span></div>
+  <div class="sp-sub">JOHAR TOWN · LAHORE</div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span><i class="fas fa-clock"></i> Open Daily 9AM–11:30PM &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> BOR Society, Johar Town, Lahore</span>
+  <div>
+    <a href="tel:03214105096"><i class="fas fa-phone-alt"></i> 0321-4105096</a>
+    <a href="https://wa.me/923214105096"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo" onclick="go('home')">
+    <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+    <div>
+      <div class="logo-name">Al-Fazal Medical &amp; Dental</div>
+      <div class="logo-sub">Johar Town, Lahore — Est. 2005</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="go('home')" data-p="home" class="active-nav">Home</a></li>
+    <li><a onclick="go('about')" data-p="about" class="">About</a></li>
+    <li><a onclick="go('services')" data-p="services" class="">Services</a></li>
+    <li><a onclick="go('doctors')" data-p="doctors" class="">Doctors</a></li>
+    <li><a onclick="go('treatments')" data-p="treatments" class="">Treatments</a></li>
+    <li><a onclick="go('patients')" data-p="patients" class="">Patients</a></li>
+    <li><a onclick="go('reviews')" data-p="reviews">Reviews</a></li>
+    <li><a onclick="go('gallery')" data-p="gallery">Gallery</a></li>
+    <li><a onclick="go('awards')" data-p="awards" class="">Awards</a></li>
+    <li><a onclick="go('contact')" data-p="contact" class="">Contact</a></li>
+    <li><a onclick="go('book')" data-p="book" class="nav-cta"><i class="far fa-calendar-alt"></i> Book Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMob()"><i class="fas fa-bars"></i></div>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mobMenu">
+  <div class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></div>
+  <ul class="mob-nav-list">
+    <li><a onclick="go('home');closeMob()">Home</a></li>
+    <li><a onclick="go('about');closeMob()">About</a></li>
+    <li><a onclick="go('services');closeMob()">Services</a></li>
+    <li><a onclick="go('doctors');closeMob()">Doctors</a></li>
+    <li><a onclick="go('treatments');closeMob()">Treatments</a></li>
+    <li><a onclick="go('patients');closeMob()">Patients</a></li>
+    <li><a onclick="go('reviews');closeMob()">Reviews</a></li>
+    <li><a onclick="go('gallery');closeMob()">Gallery</a></li>
+    <li><a onclick="go('awards');closeMob()">Awards</a></li>
+    <li><a onclick="go('contact');closeMob()">Contact</a></li>
+    <li><a onclick="go('book');closeMob()" class="mob-cta">📅 Book Now</a></li>
+  </ul>
+</div>
+
+<!-- EMERGENCY -->
+<div class="emergency">
+  <p><i class="fas fa-exclamation-triangle"></i> Dental Emergency? We are available RIGHT NOW!</p>
+  <a href="tel:03214105096">📞 Call: 0321-4105096</a>
+</div>
+
+<!-- ==================== HOME PAGE ==================== -->
+<div class="page active" id="pg-home">
+  <div class="hero">
+    <!-- HERO IMAGE CAROUSEL (Now acts as full-screen background) -->
+    <div class="hero-image-carousel" id="heroImageCarousel">
+        <div class="hero-carousel-item" style="background-image: url('https://images.unsplash.com/photo-1758205307876-334bb810a63a?w=1200&auto=format&fit=crop&q=80')">
+          <div class="hero-carousel-item-overlay"></div>
+          <div class="hero-carousel-doctor-info">
+            <h3>Modern Dental Facilities</h3>
+            <p>Experience comfort and advanced equipment for your perfect smile journey.</p>
+          </div>
+        </div>
+        <div class="hero-carousel-item" style="background-image: url('https://plus.unsplash.com/premium_photo-1702599064457-8553c542292f?w=1200&auto=format&fit=crop&q=80')">
+           <div class="hero-carousel-item-overlay"></div>
+          <div class="hero-carousel-doctor-info">
+            <h3>Precision in Every Procedure</h3>
+            <p>Our skilled and dedicated team ensures the highest standard of dental care for your health.</p>
+          </div>
+        </div>
+        <div class="hero-carousel-item" style="background-image: url('https://images.unsplash.com/photo-1740205643572-c4e280e3974a?w=1200&auto=format&fit=crop&q=80')">
+           <div class="hero-carousel-item-overlay"></div>
+          <div class="hero-carousel-doctor-info">
+            <h3>Welcoming Clinic Environment</h3>
+            <p>Relax and trust our professional staff in a warm and friendly atmosphere designed for you.</p>
+          </div>
+        </div>
+        <div class="hero-carousel-item active-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1661632237873-3d50504ffaee?w=1200&auto=format&fit=crop&q=80')">
+           <div class="hero-carousel-item-overlay"></div>
+          <div class="hero-carousel-doctor-info">
+            <h3>Advanced Technology for Better Care</h3>
+            <p>We deliver excellent results with cutting-edge innovations and state-of-the-art dental equipment.</p>
+          </div>
+        </div>
+        <div class="hero-carousel-item" style="background-image: url('https://images.unsplash.com/photo-1626736903650-2289a3b32ed8?w=1200&auto=format&fit=crop&q=80')">
+           <div class="hero-carousel-item-overlay"></div>
+          <div class="hero-carousel-doctor-info">
+            <h3>Your Comfort is Our Priority</h3>
+            <p>Our experienced dentists ensure a pain-free and comfortable treatment experience every time.</p>
+          </div>
+        </div>
+    </div>
+
+    <!-- Hero Text Rotator (Globally changing texts) -->
+    <div class="hero-top-elements">
+      <div class="hero-text-rotator" id="heroTextRotator">
+        <span class="">Your Perfect Smile Starts Here</span>
+        <span class="">Johar Town's #1 Trusted Dental Clinic</span>
+        <span class="">Expert Doctors for Pain-Free Procedures</span>
+        <span class="active-text">Affordable Packages for Your Whole Family</span>
+      </div>
+    </div>
+
+    <div class="hero-content-wrapper">
+      <div>
+        <div class="hero-badge"><i class="fas fa-star"></i> Johar Town's #1 Trusted Dental Clinic</div>
+        <h1>Your Perfect <span>Smile</span> Starts Here</h1>
+        <p class="hero-desc">At Al-Fazal Medical &amp; Dental Care, we are dedicated to transforming lives, one smile at a time. Our team of expert doctors offers advanced, pain-free procedures and affordable packages for your entire family, right here in Lahore. We combine compassionate care with cutting-edge technology to ensure your dental journey is comfortable, effective, and delivers stunning results.</p>
+        <div class="hero-btns">
+          <a class="btn" onclick="go('book')"><i class="far fa-calendar-alt"></i> Book Appointment</a>
+          <a href="tel:03214105096" class="btn-ghost"><i class="fas fa-phone-alt"></i> 0321-4105096</a>
+        </div>
+        <div class="hero-nums">
+          <div><div class="hnum-val">5000+</div><div class="hnum-lbl">Happy Patients</div></div>
+          <div><div class="hnum-val">15+</div><div class="hnum-lbl">Years of Trust</div></div>
+          <div><div class="hnum-val">4.8⭐</div><div class="hnum-lbl">Google Rating</div></div>
+          <div><div class="hnum-val">100+</div><div class="hnum-lbl">Positive Reviews</div></div>
+        </div>
+      </div>
+      <!-- Booking card removed from here -->
+    </div>
+  </div>
+
+  <div class="ticker"><div class="tick-in">
+    <span class="tick-item">🦷 Teeth Whitening</span><span class="tick-item">🦷 Root Canal Therapy</span><span class="tick-item">🦷 Dental Implants</span><span class="tick-item">🦷 Braces & Aligners</span><span class="tick-item">🦷 Scaling & Polishing</span><span class="tick-item">🦷 Porcelain Crowns</span><span class="tick-item">🦷 Complete Dentures</span><span class="tick-item">🦷 Kids Dentistry</span>
+    <span class="tick-item">🦷 Teeth Whitening</span><span class="tick-item">🦷 Root Canal Therapy</span><span class="tick-item">🦷 Dental Implants</span><span class="tick-item">🦷 Braces & Aligners</span><span class="tick-item">🦷 Scaling & Polishing</span><span class="tick-item">🦷 Porcelain Crowns</span><span class="tick-item">🦷 Complete Dentures</span><span class="tick-item">🦷 Kids Dentistry</span>
+  </div></div>
+
+  <div class="stats-bar"><div class="stats-grid">
+    <div><div class="snum">5000+</div><div class="slbl">Patients Treated</div></div>
+    <div><div class="snum">15+</div><div class="slbl">Years Excellence</div></div>
+    <div><div class="snum">10+</div><div class="slbl">Expert Doctors</div></div>
+    <div><div class="snum">100+</div><div class="slbl">Google Reviews</div></div>
+  </div></div>
+
+  <div class="sec-gray">
+    <div class="tag">Why Choose Us</div><h2>The Al-Fazal <span>Difference</span></h2>
+    <p class="sub">Discover what sets Al-Fazal Medical & Dental Care apart. We blend advanced technology, compassionate care, and personalized treatment plans to ensure every patient receives the best possible dental experience.</p>
+    <div class="g4" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">😌</div>
+            <div><div class="why-exp-title">Pain-Free Treatment</div><div class="why-exp-short">Zero discomfort guaranteed</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>We prioritize your comfort above all else. Utilizing the latest local anesthesia techniques and a gentle approach, we ensure that every dental procedure, from a simple filling to a complex root canal, is completely pain-free. Our team is trained in anxiety management to make your visit as relaxing as possible.</p>
+          <ul>
+            <li>Latest anesthesia technology for deep numbing</li>
+            <li>Gentle &amp; caring approach by experienced dentists</li>
+            <li>Comprehensive anxiety management options available</li>
+            <li>Guaranteed zero pain during extractions &amp; RCT</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">🏥</div>
+            <div><div class="why-exp-title">Modern Equipment</div><div class="why-exp-short">Digital X-rays &amp; laser tech</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Our clinic is equipped with state-of-the-art dental technology to ensure precise diagnosis, efficient treatment, and superior results. From low-radiation digital X-rays to advanced laser equipment, we invest in the best tools for your oral health.</p>
+          <ul>
+            <li>Advanced Digital X-ray for minimal radiation exposure</li>
+            <li>State-of-the-art Laser Dentistry equipment for precise treatments</li>
+            <li>All instruments are meticulously sterilized to international standards</li>
+            <li>Modern dental chairs designed for maximum patient comfort</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">👨‍⚕️</div>
+            <div><div class="why-exp-title">Expert Doctors</div><div class="why-exp-short">BDS &amp; FCPS specialists</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Our highly qualified team of BDS and FCPS certified specialists brings decades of combined experience across all dental disciplines. Each doctor is dedicated to continuous learning, staying updated with the latest advancements in dentistry to provide you with the best care.</p>
+          <ul>
+            <li>Team comprises highly qualified BDS &amp; FCPS specialists</li>
+            <li>Each doctor boasts 8–15 years of rich clinical experience</li>
+            <li>Collectively, we have successfully treated over 5,000 patients</li>
+            <li>We have dedicated specialists for every field, from orthodontics to oral surgery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">💰</div>
+            <div><div class="why-exp-title">Affordable Packages</div><div class="why-exp-short">Family &amp; installment plans</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Quality dental care should be accessible to everyone. We offer transparent pricing, special family discount packages, and easy monthly installment plans to ensure you get the necessary treatment without financial stress. Your first consultation is always free!</p>
+          <ul>
+            <li>Exclusive special family discount packages</li>
+            <li>Flexible and easy monthly installment options</li>
+            <li>Enjoy a complimentary first consultation for all new patients</li>
+            <li>Committed to transparent pricing with absolutely no hidden fees</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">🕐</div>
+            <div><div class="why-exp-title">Open Till 11:30 PM</div><div class="why-exp-short">7 days a week convenience</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>We understand your busy lifestyle. That's why Al-Fazal Dental is open late every single day, including weekends and public holidays. You can easily schedule your dental appointments without interrupting your work or school commitments.</p>
+          <ul>
+            <li>Conveniently open daily from 9 AM to 11:30 PM</li>
+            <li>Available on all weekends &amp; public holidays</li>
+            <li>Emergency appointments are always welcome &amp; accommodated</li>
+            <li>Walk-ins are accepted at any time during clinic hours</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">📍</div>
+            <div><div class="why-exp-title">Prime Location</div><div class="why-exp-short">BOR Society, Johar Town</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Our clinic is strategically located in BOR Society, Johar Town – one of Lahore's most central and easily accessible areas. You'll find ample parking and convenient public transport options, making your visit hassle-free.</p>
+          <ul>
+            <li>Situated in the central &amp; prime location of Johar Town</li>
+            <li>Ample and easy parking facilities are readily available</li>
+            <li>Highly accessible via all major routes &amp; public transport</li>
+            <li>Conveniently located near major landmarks &amp; reputable hospitals</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:4rem"><a class="btn" onclick="go('about')">Learn More <i class="fas fa-arrow-right"></i></a></div>
+  </div>
+
+  <div class="video-section">
+    <div class="tag">Explore Our Clinic</div>
+    <h2>Watch Our <span>Clinic Tour</span> Video</h2>
+    <p class="sub">Take a virtual tour of Al-Fazal Medical & Dental Care. See our modern facilities, state-of-the-art equipment, and the welcoming environment designed for your comfort and care.</p>
+    <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1598256989809-394fa4f6cd26?fit=crop&w=1000&h=562&q=80');" onclick="openVideoModal('https://www.youtube.com/embed/2O_8s7fD_pM?autoplay=1')">
+        <div class="video-card-overlay"></div>
+        <div class="video-card-info">
+            <h3>Al-Fazal Dental Clinic Overview</h3>
+            <p>A comprehensive look at our advanced facilities</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="tag">Services</div><h2>Our Comprehensive Dental <span>Services</span></h2>
+    <p class="sub">From routine check-ups to advanced cosmetic and restorative procedures, Al-Fazal Dental offers a full spectrum of dental services to meet all your family's oral health needs.</p>
+    <div class="g4">
+      <div class="svc-card" onclick="openSvc('Scaling &amp; Cleaning','🦷','Professional teeth cleaning to remove plaque, tartar and stains for healthier gums and a brighter, fresher smile. Recommended every six months for optimal oral hygiene.','From Rs. 2,000',['Removes stubborn plaque & tartar buildup','Effectively prevents gum disease & cavities','Significantly reduces chronic bad breath','Restores your natural tooth brightness'])"><div class="svc-icon">🦷</div><div class="svc-name">Scaling &amp; Cleaning</div><div class="svc-desc">Professional removal of plaque &amp; tartar for healthy gums.</div><div class="svc-price">From Rs. 2,000</div><span class="more">Learn More →</span></div>
+      <div class="svc-card" onclick="openSvc('Teeth Whitening','✨','Advanced whitening treatments designed to safely and effectively brighten your smile by several shades in just one visit. Achieve a radiant and confident new look.','From Rs. 8,000',['Brightens your smile by 5-10 shades','Effectively removes coffee & tea stains','Safe and supervised procedure with lasting results','Boosts your confidence with a dazzling smile'])"><div class="svc-icon">✨</div><div class="svc-name">Teeth Whitening</div><div class="svc-desc">Brighten your smile by several shades in one visit.</div><div class="svc-price">From Rs. 8,000</div><span class="more">Learn More →</span></div>
+      <div class="svc-card" onclick="openSvc('Dental Implants','🔩','Permanent titanium tooth replacements that look, feel, and function exactly like natural teeth. The gold standard for replacing missing teeth and preventing bone loss.','From Rs. 35,000',['A truly permanent solution for missing teeth','Natural look and comfortable feel','Prevents jawbone loss and maintains facial structure','Easy to maintain with regular oral hygiene'])"><div class="svc-icon">🔩</div><div class="svc-name">Dental Implants</div><div class="svc-desc">Permanent titanium tooth replacements for a natural look.</div><div class="svc-price">From Rs. 35,000</div><span class="more">Learn More →</span></div>
+      <div class="svc-card" onclick="openSvc('Braces &amp; Aligners','😁','Modern orthodontic solutions including traditional metal braces, discreet ceramic braces, and clear aligners to effectively straighten teeth and correct bite issues for all ages.','From Rs. 25,000',['Corrects misaligned teeth and bite problems','Offers various discreet options to suit your lifestyle','Significantly improves overall bite function','Enhances aesthetic appearance and confidence'])"><div class="svc-icon">😁</div><div class="svc-name">Braces &amp; Aligners</div><div class="svc-desc">Straighten your teeth with braces or clear aligners.</div><div class="svc-price">From Rs. 25,000</div><span class="more">Learn More →</span></div>
+    </div>
+    <div style="text-align:center;margin-top:4rem"><a class="btn" onclick="go('services')">All Services <i class="fas fa-arrow-right"></i></a></div>
+  </div>
+
+  <div class="sec-gray">
+    <div class="tag">Doctors</div><h2>Meet Our <span>Expert Doctors</span></h2>
+    <p class="sub">Our team of highly qualified and compassionate dental professionals is dedicated to providing personalized care using their extensive experience and the latest dental techniques.</p>
+    <div class="g3">
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://plus.unsplash.com/premium_photo-1672922646096-dee26745509f?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA5fHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Senior Dentist</span></div><div class="doc-body"><div class="doc-name">Dr. Fareed Ahmed</div><div class="doc-spec">BDS, RDS — General &amp; Cosmetic</div><div class="doc-exp">15+ Years · 3000+ Patients · Specialist in Root Canal &amp; Restorations</div><div class="doc-stars">★★★★★ Highly Recommended</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book</button></div></div>
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://plus.unsplash.com/premium_photo-1681967006645-04fd88a1b82d?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQxfHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Orthodontist</span></div><div class="doc-body"><div class="doc-name">Dr. Ayesha Malik</div><div class="doc-spec">BDS, FCPS — Orthodontics</div><div class="doc-exp">10+ Years · 2000+ Patients · Expert in Braces &amp; Smile Makeovers</div><div class="doc-stars">★★★★★ Patient Favourite</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book</button></div></div>
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&amp;w=1770&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"><span class="doc-badge">Implant Expert</span></div><div class="doc-body"><div class="doc-name">Dr. Usman Tariq</div><div class="doc-spec">BDS, MSc — Implants &amp; Surgery</div><div class="doc-exp">8+ Years · 1500+ Patients · Expert in Surgical Extractions &amp; Implants</div><div class="doc-stars">★★★★★ Highly Skilled</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book</button></div></div>
+    </div>
+    <div style="text-align:center;margin-top:4rem"><a class="btn" onclick="go('doctors')">All Doctors <i class="fas fa-arrow-right"></i></a></div>
+  </div>
+
+  <div class="sec">
+    <div class="tag">Reviews</div><h2>What Our Patients <span>Say</span></h2>
+    <p class="sub">Read genuine testimonials from our satisfied patients who have experienced the exceptional care and outstanding results at Al-Fazal Medical & Dental Care.</p>
+    <div class="g3">
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"Had a truly great experience at Al-Fazal Dental. The staff is incredibly polite, the clinic is impeccably clean, and the dentist demonstrated exceptional care. I am very satisfied with the results!"</div><div class="rev-auth"><div class="rev-av">ME</div><div><div class="rev-name">Muhammad Elahi</div><div class="rev-src">Google Review</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"Dr. Ayesha is outstanding! She explained every single step of my root canal treatment perfectly, ensuring I understood everything. Her guidance made the entire process very comforting and helpful."</div><div class="rev-auth"><div class="rev-av">NK</div><div><div class="rev-name">Nadir Khan</div><div class="rev-src">Google Review</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"Dr. Fareed is genuinely the best! There's a true healing touch in his hands. I experienced absolutely no pain during my entire treatment, which was a huge relief. Highly recommend him!"</div><div class="rev-auth"><div class="rev-av">RH</div><div><div class="rev-name">Rana M. Haris</div><div class="rev-src">Google Review</div></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:4rem"><a class="btn" onclick="go('reviews')">All Reviews <i class="fas fa-arrow-right"></i></a></div>
+  </div>
+
+  <!-- Moved Appt Card here -->
+  <div class="sec-gray" style="text-align: center;">
+    <div class="tag" style="justify-content:center">Book Now</div>
+    <h2>Schedule Your <span>Visit</span></h2>
+    <p class="sub">Take the first step towards a healthier, brighter smile. Fill out our simple booking form for a free consultation.</p>
+    <div class="appt-card" style="max-width: 580px; margin: 2.8rem auto;">
+      <div class="appt-ttl">📅 Book Your Free Consultation</div>
+      <form onsubmit="handleBookingSubmit(event)">
+        <div class="frow">
+          <div class="fg"><label for="appt-name">Name</label><input type="text" id="appt-name" placeholder="Full name" required></div>
+          <div class="fg"><label for="appt-phone">Phone</label><input type="tel" id="appt-phone" placeholder="0300-0000000" required></div>
+        </div>
+        <div class="fg"><label for="appt-treatment">Treatment</label>
+          <select id="appt-treatment" required><option value="">Select Treatment</option><option>Teeth Cleaning</option><option>Whitening</option><option>Root Canal</option><option>Implants</option><option>Braces</option><option>Crowns</option><option>Checkup</option><option>Other</option></select>
+        </div>
+        <div class="frow">
+          <div class="fg"><label for="appt-date">Date</label><input type="date" id="appt-date" required></div>
+          <div class="fg"><label for="appt-time">Time</label><select id="appt-time" required><option>Morning (9-12)</option><option>Afternoon (12-5)</option><option>Evening (5-11)</option></select></div>
+        </div>
+        <button type="submit" class="btn" style="width:100%;justify-content:center"><i class="far fa-calendar-alt"></i> Submit Booking</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ABOUT PAGE ==================== -->
+<div class="page" id="pg-about">
+  <div class="page-hdr"><h1>About <span>Al-Fazal Dental</span></h1><p>Our journey of excellence in dental care since 2005</p></div>
+  <div class="sec">
+    <div class="about-grid">
+      <div><div class="about-img" style="background-image: url('https://images.unsplash.com/photo-1663755785915-ef1748dda404?w=800&amp;auto=format&amp;fit=crop&amp;q=80&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fGRlbnRpc3R8ZW58MHx8MHx8fDA%3D');"><div class="about-badge"><span class="ab-num">15+</span><span class="ab-txt">Years of Excellence</span></div></div></div>
+      <div>
+        <div class="tag">Our Story</div>
+        <h2>Welcome to the <span>Al-Fazal Family</span></h2>
+        <p style="font-size:.98rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.5rem">Established in 2005, Al-Fazal Medical &amp; Dental Care has proudly served Johar Town as its most trusted dental clinic for over 15 years. Our foundation is built on an unwavering commitment to providing advanced, patient-centric dental solutions within a comfortable, friendly, and state-of-the-art environment.</p>
+        <p style="font-size:.98rem;color:var(--text-muted);line-height:1.9;margin-bottom:2rem">We firmly believe that a healthy and beautiful smile is more than just aesthetics; it's about boosting confidence, ensuring comfort, and contributing significantly to overall wellbeing. Our dedicated team of doctors leverages modern technology and evidence-based practices to deliver safe, effective, and truly affordable treatments tailored to each individual's needs. Join our growing family of over 5000 happy patients!</p>
+        <div class="about-pts">
+          <div class="apt"><div class="apt-chk">✓</div> Pain-Free Advanced Treatment Techniques for Your Comfort</div>
+          <div class="apt"><div class="apt-chk">✓</div> Highly Qualified BDS &amp; FCPS Specialist Doctors</div>
+          <div class="apt"><div class="apt-chk">✓</div> Modern, Fully Sterilized Equipment &amp; Digital X-Ray Facility</div>
+          <div class="apt"><div class="apt-chk">✓</div> Transparent &amp; Affordable Packages with Flexible Installment Options</div>
+          <div class="apt"><div class="apt-chk">✓</div> Proudly Served Over 5,000 Happy Patients Since 2005</div>
+        </div>
+        <a class="btn" onclick="go('book')">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+  <div class="video-section-left-aligned">
+    <div class="video-section-text-content">
+        <div class="tag">Our Vision</div>
+        <h2>Al-Fazal Dental: <span>Our Story in Motion</span></h2>
+        <p class="sub">Discover the heart and soul behind Al-Fazal Dental Care. This video shares our commitment to excellence, patient-first philosophy, and how we strive to create lasting smiles and healthy communities. Learn more about our journey and what drives us every day.</p>
+        <a class="btn" onclick="go('about')">More About Us <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="video-wrapper">
+        <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1579660378945-b4618768a35e?fit=crop&w=1000&h=562&q=80');" onclick="openVideoModal('https://www.youtube.com/embed/k49U1l0t6A8?autoplay=1')">
+            <div class="video-card-overlay"></div>
+            <div class="video-card-info">
+                <h3>Our Clinic Philosophy & Care</h3>
+                <p>Dedicated to your health and comfort</p>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="sec-gray">
+    <div style="text-align:center;"><div class="tag" style="justify-content:center">Why Choose Us</div><h2>The Al-Fazal <span>Difference</span></h2>
+    <p class="sub">We are committed to delivering dental excellence through a patient-first approach, innovative technology, and a team that genuinely cares about your smile.</p></div>
+    <div class="g4" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">😌</div>
+            <div><div class="why-exp-title">Pain-Free Treatment</div><div class="why-exp-short">Zero discomfort guaranteed</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>We prioritize your comfort above all else. Utilizing the latest local anesthesia techniques and a gentle approach, we ensure that every dental procedure, from a simple filling to a complex root canal, is completely pain-free. Our team is trained in anxiety management to make your visit as relaxing as possible.</p>
+          <ul>
+            <li>Latest anesthesia technology for deep numbing</li>
+            <li>Gentle &amp; caring approach by experienced dentists</li>
+            <li>Comprehensive anxiety management options available</li>
+            <li>Guaranteed zero pain during extractions &amp; RCT</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">🏥</div>
+            <div><div class="why-exp-title">Modern Equipment</div><div class="why-exp-short">Digital X-rays &amp; laser tech</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Our clinic is equipped with state-of-the-art dental technology to ensure precise diagnosis, efficient treatment, and superior results. From low-radiation digital X-rays to advanced laser equipment, we invest in the best tools for your oral health.</p>
+          <ul>
+            <li>Advanced Digital X-ray for minimal radiation exposure</li>
+            <li>State-of-the-art Laser Dentistry equipment for precise treatments</li>
+            <li>All instruments are meticulously sterilized to international standards</li>
+            <li>Modern dental chairs designed for maximum patient comfort</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">👨‍⚕️</div>
+            <div><div class="why-exp-title">Expert Doctors</div><div class="why-exp-short">BDS &amp; FCPS specialists</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Our highly qualified team of BDS and FCPS certified specialists brings decades of combined experience across all dental disciplines. Each doctor is dedicated to continuous learning, staying updated with the latest advancements in dentistry to provide you with the best care.</p>
+          <ul>
+            <li>Team comprises highly qualified BDS &amp; FCPS specialists</li>
+            <li>Each doctor boasts 8–15 years of rich clinical experience</li>
+            <li>Collectively, we have successfully treated over 5,000 patients</li>
+            <li>We have dedicated specialists for every field, from orthodontics to oral surgery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">💰</div>
+            <div><div class="why-exp-title">Affordable Packages</div><div class="why-exp-short">Family &amp; installment plans</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Quality dental care should be accessible to everyone. We offer transparent pricing, special family discount packages, and easy monthly installment plans to ensure you get the necessary treatment without financial stress. Your first consultation is always free!</p>
+          <ul>
+            <li>Exclusive special family discount packages</li>
+            <li>Flexible and easy monthly installment options</li>
+            <li>Enjoy a complimentary first consultation for all new patients</li>
+            <li>Committed to transparent pricing with absolutely no hidden fees</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">🕐</div>
+            <div><div class="why-exp-title">Open Till 11:30 PM</div><div class="why-exp-short">7 days a week convenience</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>We understand your busy lifestyle. That's why Al-Fazal Dental is open late every single day, including weekends and public holidays. You can easily schedule your dental appointments without interrupting your work or school commitments.</p>
+          <ul>
+            <li>Conveniently open daily from 9 AM to 11:30 PM</li>
+            <li>Available on all weekends &amp; public holidays</li>
+            <li>Emergency appointments are always welcome &amp; accommodated</li>
+            <li>Walk-ins are accepted at any time during clinic hours</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-exp-card" onclick="toggleWhy(this)">
+        <div class="why-exp-header">
+          <div class="why-exp-left">
+            <div class="why-exp-ico">📍</div>
+            <div><div class="why-exp-title">Prime Location</div><div class="why-exp-short">BOR Society, Johar Town</div></div>
+          </div>
+          <div class="why-exp-tog">+</div>
+        </div>
+        <div class="why-exp-body">
+          <p>Our clinic is strategically located in BOR Society, Johar Town – one of Lahore's most central and easily accessible areas. You'll find ample parking and convenient public transport options, making your visit hassle-free.</p>
+          <ul>
+            <li>Situated in the central &amp; prime location of Johar Town</li>
+            <li>Ample and easy parking facilities are readily available</li>
+            <li>Highly accessible via all major routes &amp; public transport</li>
+            <li>Conveniently located near major landmarks &amp; reputable hospitals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SERVICES PAGE ==================== -->
+<div class="page" id="pg-services">
+  <div class="page-hdr"><h1>Our Comprehensive Dental <span>Services</span></h1><p>Complete care from routine checkups to advanced specialized procedures</p></div>
+  <div class="sec">
+    <div class="tag">What We Offer</div><h2>All Our Specialized <span>Services</span></h2>
+    <p class="sub">Al-Fazal Medical & Dental Care offers a complete range of dental services designed to cater to every aspect of your oral health. Our team utilizes the latest techniques and equipment to ensure effective and comfortable treatments for patients of all ages.</p>
+    <div class="g4">
+      <div class="svc-card" onclick="openSvc('Scaling &amp; Cleaning','🦷','Professional teeth cleaning to remove plaque, tartar, and stains for healthier gums and a brighter, fresher smile. This preventive treatment helps in averting gum disease, reducing bad breath, and maintaining overall oral hygiene. Recommended every 6 months for optimal results.','From Rs. 2,000',['Removes stubborn plaque & tartar buildup','Effectively prevents gum disease & cavities','Significantly reduces chronic bad breath','Restores your natural tooth brightness & polish'])"><div class="svc-icon">🦷</div><div class="svc-name">Scaling &amp; Cleaning</div><div class="svc-desc">Removes plaque, tartar and stains professionally.</div><div class="svc-price">From Rs. 2,000</div></div>
+      <div class="svc-card" onclick="openSvc('Teeth Whitening','✨','Advanced teeth whitening treatments that can brighten your smile by 5–10 shades in just one visit. Our safe and supervised procedure effectively removes years of stains caused by coffee, tea, and tobacco, giving you a long-lasting, dazzling smile.','From Rs. 8,000',['Brightens your smile by an impressive 5–10 shades','Effectively removes coffee, tea, and tobacco stains','Safe and professionally supervised procedure','Results typically last between 1–3 years with proper care']))"><div class="svc-icon">✨</div><div class="svc-name">Teeth Whitening</div><div class="svc-desc">Brighten smile by several shades in one visit.</div><div class="svc-price">From Rs. 8,000</div></div>
+      <div class="svc-card" onclick="openSvc('Dental Implants','🔩','Permanent titanium tooth replacements that look, feel, and function like natural teeth. Dental implants are the gold standard for missing tooth replacement, preventing jawbone loss and providing a stable foundation for a lifelong smile.','From Rs. 35,000',['Provides a permanent & incredibly long-lasting solution','Offers a natural look and comfortable feel, just like your own teeth','Actively prevents jawbone loss and maintains facial structure','Does not damage adjacent healthy teeth, unlike bridges'])"><div class="svc-icon">🔩</div><div class="svc-name">Dental Implants</div><div class="svc-desc">Permanent titanium tooth replacements.</div><div class="svc-price">From Rs. 35,000</div></div>
+      <div class="svc-card" onclick="openSvc('Braces &amp; Aligners','😁','Modern orthodontic solutions including traditional metal braces, discreet ceramic braces, and clear aligners to straighten teeth and correct bite issues for all ages. We offer personalized orthodontic plans for all ages, ensuring a confident and properly aligned smile.','From Rs. 25,000',['Effectively corrects misaligned teeth and crowded smiles','Significantly improves overall bite function and chewing','Offers various discreet options including clear aligners','Suitable for patients of all ages, children and adults alike']))"><div class="svc-icon">😁</div><div class="svc-name">Braces &amp; Aligners</div><div class="svc-desc">Straighten teeth with metal or clear aligners.</div><div class="svc-price">From Rs. 25,000</div></div>
+      <div class="svc-card" onclick="openSvc('Root Canal Therapy (RCT)','🩺','Pain-free root canal treatment to save infected teeth. Our modern anesthesia techniques ensure zero discomfort, preserving your natural tooth permanently and eliminating infection.','From Rs. 6,000',['Successfully saves your natural tooth from extraction','Completely eliminates pain & infection within the tooth','Ensures a 100% pain-free and comfortable procedure','Offers a permanent solution to tooth decay and infection'])"><div class="svc-icon">🩺</div><div class="svc-name">Root Canal (RCT)</div><div class="svc-desc">Pain-free treatment to save natural teeth.</div><div class="svc-price">From Rs. 6,000</div></div>
+      <div class="svc-card" onclick="openSvc('Crowns &amp; Bridges','👑','Custom porcelain crowns and bridges are used to restore damaged or missing teeth beautifully. These durable restorations blend seamlessly with your natural teeth, improving function and aesthetics for 10–15 years.','From Rs. 12,000',['Effectively restores damaged and fractured teeth','Provides a natural appearance that matches existing teeth','Highly durable, lasting 10–15 years with proper care','Protects weak or discolored teeth, enhancing smile aesthetics']))"><div class="svc-icon">👑</div><div class="svc-name">Crowns &amp; Bridges</div><div class="svc-desc">Custom porcelain restorations for damaged teeth.</div><div class="svc-price">From Rs. 12,000</div></div>
+      <div class="svc-card" onclick="openSvc('Pediatric Dentistry','🧒','Gentle, child-friendly dental care provided in a fun and comfortable environment. We focus on making dental visits a positive experience for your little ones, preventing childhood cavities and establishing healthy oral habits early on.','From Rs. 1,500',['Creates a fun, child-friendly environment for young patients','Actively prevents childhood cavities and dental issues','Establishes healthy oral hygiene habits from an early age','Utilizes gentle techniques specifically designed for kids']))"><div class="svc-icon">🧒</div><div class="svc-name">Pediatric Dentistry</div><div class="svc-desc">Gentle dental care for children of all ages.</div><div class="svc-price">From Rs. 1,500</div></div>
+      <div class="svc-card" onclick="openSvc('Dentures','🫦','Full and partial dentures meticulously crafted for maximum comfort and a completely natural appearance. Our custom-fitted dentures restore chewing and speaking ability, significantly improving quality of life.','From Rs. 15,000',['Effectively replaces multiple missing teeth','Restores your ability to chew and speak confidently','Custom-designed for a completely natural appearance','Removable for easy cleaning and optimal hygiene']))"><div class="svc-icon">🫦</div><div class="svc-name">Dentures</div><div class="svc-desc">Full and partial dentures for natural appearance.</div><div class="svc-price">From Rs. 15,000</div></div>
+      <div class="svc-card" onclick="openSvc('Tooth Extraction','🦷','Safe and painless tooth extraction when necessary, performed under local anesthesia to ensure complete comfort. We also offer immediate and effective replacement options to maintain your smile.','From Rs. 3,000',['Ensures safe & completely painless tooth removal','Provides immediate relief from severe dental pain','Prevents the spread of infection to other teeth','Offers same-day replacement options for continuity of smile'])"><div class="svc-icon">🦷</div><div class="svc-name">Tooth Extraction</div><div class="svc-desc">Safe and painless removal when necessary.</div><div class="svc-price">From Rs. 3,000</div></div>
+      <div class="svc-card" onclick="openSvc('Gum Treatment','💉','Effective treatments for gingivitis and periodontal disease to restore healthy gums and prevent tooth loss. Our comprehensive approach addresses inflammation, bleeding, and deep infections.','From Rs. 4,000',['Effectively stops the progression of gum disease','Significantly reduces gum inflammation & bleeding','Plays a crucial role in preventing tooth loss','Contributes to fresher breath and healthier oral flora'])"><div class="svc-icon">💉</div><div class="svc-name">Gum Treatment</div><div class="svc-desc">Effective treatment for gum disease.</div><div class="svc-price">From Rs. 4,000</div></div>
+      <div class="svc-card" onclick="openSvc('Dental Fillings','🔧','Tooth-colored composite fillings that blend naturally with your existing teeth. These restorations effectively repair decayed teeth and prevent further damage, providing a durable and aesthetic solution.','From Rs. 2,500',['Perfectly matches your natural tooth color','Effectively prevents further tooth decay','Strengthens and restores damaged teeth','Long-lasting results, typically 5–10 years']))"><div class="svc-icon">🔧</div><div class="svc-name">Dental Fillings</div><div class="svc-desc">Natural-looking composite fillings for cavities.</div><div class="svc-price">From Rs. 2,500</div></div>
+      <div class="svc-card" onclick="openSvc('Veneers','💎','Thin porcelain shells custom-bonded to the front surface of teeth for a complete smile transformation. Veneers correct discoloration, chips, gaps, and minor misalignments, creating a flawless aesthetic.','From Rs. 20,000',['Offers a complete and dramatic smile makeover','Made from highly stain-resistant porcelain material','Effectively corrects chips, cracks, and gaps','Provides long-lasting results, typically 10–15 years']))"><div class="svc-icon">💎</div><div class="svc-name">Veneers</div><div class="svc-desc">Porcelain veneers for smile transformation.</div><div class="svc-price">From Rs. 20,000</div></div>
+      <div class="svc-card" onclick="openSvc('Laser Dentistry','⚡','Advanced laser procedures for gum treatment, cavity preparation, and teeth whitening with minimal pain, reduced bleeding, and faster recovery times. Experience precision and comfort.','From Rs. 8,000',['Ensures minimal pain & discomfort during procedures','Promotes faster healing and recovery times','Offers highly precise and targeted treatment','Often reduces or eliminates the need for anesthesia']))"><div class="svc-icon">⚡</div><div class="svc-name">Laser Dentistry</div><div class="svc-desc">Precise laser procedures with minimal pain.</div><div class="svc-price">From Rs. 8,000</div></div>
+      <div class="svc-card" onclick="openSvc('General Checkup','🔬','Comprehensive dental examination including X-ray assessment, early cavity detection, and personalized oral hygiene guidance. Regular checkups are vital for maintaining optimal oral health.','From Rs. 1,000',['Crucial for early detection of potential problems','Includes thorough X-ray assessment for hidden issues','Provides personalized oral hygiene tips and advice','Includes oral cancer screening for early diagnosis'])"><div class="svc-icon">🔬</div><div class="svc-name">General Checkup</div><div class="svc-desc">Comprehensive examination for optimal oral health.</div><div class="svc-price">From Rs. 1,000</div></div>
+      <div class="svc-card" onclick="openSvc('Sedation Dentistry','😴','Comfortable and stress-free treatment options for patients with dental anxiety or phobia. Nitrous oxide (laughing gas) and oral sedatives are available to ensure a relaxed experience.','From Rs. 10,000',['Completely eliminates dental anxiety and fear','Ensures a relaxed and comfortable treatment experience','Allows for more work to be done in fewer visits','Safe and constantly monitored by our expert team']))"><div class="svc-icon">😴</div><div class="svc-name">Sedation Dentistry</div><div class="svc-desc">Stress-free treatment for anxious patients.</div><div class="svc-price">From Rs. 10,000</div></div>
+      <div class="svc-card" onclick="openSvc('Oral Cancer Screening','🔍','Quick and painless oral cancer screening during your regular checkup. Early detection dramatically improves treatment success rates and is a vital part of preventive care.','From Rs. 2,000',['Essential for early cancer detection','A quick and completely painless 5-minute exam','Dramatically improves treatment success rates','Annual screening highly recommended for all adults']))"><div class="svc-icon">🔍</div><div class="svc-name">Cancer Screening</div><div class="svc-desc">Early detection of oral cancer signs.</div><div class="svc-price">From Rs. 2,000</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SERVICE DETAIL PAGE ==================== -->
+<div class="page" id="pg-service-detail">
+  <div class="page-hdr"><h1 id="sd-title">Service</h1><p>Detailed information about this service</p></div>
+  <div class="detail-wrap">
+    <div class="detail-img" id="sd-icon"></div>
+    <p class="detail-desc" id="sd-desc"></p>
+    <div class="detail-h2">Benefits of This Service</div>
+    <ul class="detail-ul" id="sd-benefits"></ul>
+    <p class="detail-desc" id="sd-price" style="font-weight:700;color:var(--primary-blue);font-size:1.15rem"></p>
+    <div class="detail-book">
+      <h3>Ready for Your Treatment?</h3>
+      <p style="color:var(--text-muted);margin-bottom:1.8rem">Book your appointment with our expert team today for a personalized consultation and exceptional dental care.</p>
+      <a class="btn" onclick="go('book')"><i class="far fa-calendar-alt"></i> Book Now</a>
+    </div>
+    <div class="back-btn" onclick="go('services')"><i class="fas fa-arrow-left"></i> Back to Services</div>
+  </div>
+</div>
+
+<!-- ==================== DOCTORS PAGE ==================== -->
+<div class="page" id="pg-doctors">
+  <div class="page-hdr"><h1>Meet Our <span>Expert Doctors</span></h1><p>Highly qualified and experienced dental professionals dedicated to your health</p></div>
+  <div class="sec">
+    <div class="tag">Our Team</div><h2>Our Dedicated <span>Specialists</span></h2>
+    <p class="sub">Our diverse team of dentists brings a wealth of knowledge and expertise across all fields of modern dentistry. Each specialist is committed to ongoing education and patient-centered care, ensuring you receive the highest standard of treatment.</p>
+    <div class="g3">
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://plus.unsplash.com/premium_photo-1672922646096-dee26745509f?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA5fHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Senior Dentist</span></div><div class="doc-body"><div class="doc-name">Dr. Fareed Ahmed</div><div class="doc-spec">BDS, RDS — General &amp; Cosmetic Dentistry</div><div class="doc-exp">With over 15 years of experience and having treated 3000+ patients, Dr. Fareed is a leading specialist in Root Canal Therapy and complex Dental Restorations. His gentle touch ensures a pain-free experience.</div><div class="doc-stars">★★★★★ Highly Recommended</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book Appointment</button></div></div>
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://plus.unsplash.com/premium_photo-1681967006645-04fd88a1b82d?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQxfHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Orthodontist</span></div><div class="doc-body"><div class="doc-name">Dr. Ayesha Malik</div><div class="doc-spec">BDS, FCPS — Orthodontics &amp; Aligners</div><div class="doc-exp">Boasting 10+ years of expertise and successfully treated 2000+ patients, Dr. Ayesha is an expert in Braces, Clear Aligners, and full Smile Makeovers. Her meticulous approach guarantees perfect alignment.</div><div class="doc-stars">★★★★★ Patient Favourite</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book Appointment</button></div></div>
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1662997777051-f50b550bff53?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc5fHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Implant Expert</span></div><div class="doc-body"><div class="doc-name">Dr. Usman Tariq</div><div class="doc-spec">BDS, MSc — Dental Implants &amp; Oral Surgery</div><div class="doc-exp">With 8+ years experience and over 1500 successful implants, Dr. Usman is our lead expert in Dental Implants and advanced Surgical Extractions. He combines precision with patient comfort for optimal outcomes.</div><div class="doc-stars">★★★★★ Highly Skilled</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book Appointment</button></div></div>
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1650803075918-efbee311735d?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTg2fHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Pediatric Dentist</span></div><div class="doc-body"><div class="doc-name">Dr. Hina Khan</div><div class="doc-spec">BDS, MS — Pediatric Dentistry</div><div class="doc-exp">Dr. Hina, with 7+ years of experience and 1800+ child patients, is beloved for her gentle approach to pediatric dentistry. She excels at making dental visits a fun and positive experience for children.</div><div class="doc-stars">★★★★★ Great with Kids</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book Appointment</button></div></div>
+      <div class="doc-card"><div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1663151064065-cb334788f77d?w=600&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk0fHxkZW50aXN0fGVufDB8fDB8fHww');"><span class="doc-badge">Oral Surgeon</span></div><div class="doc-body"><div class="doc-name">Dr. Bilal Sarwar</div><div class="doc-spec">BDS, FCPS — Oral &amp; Maxillofacial Surgery</div><div class="doc-exp">Bringing 12+ years of profound experience and 2500+ successful procedures, Dr. Bilal is our highly skilled Oral & Maxillofacial Surgeon, known for his precision and efficient handling of complex cases.</div><div class="doc-stars">★★★★★ Precise &amp; Efficient</div><button class="btn" onclick="go('book')" style="font-size:.82rem;padding:.6rem 1.2rem">📅 Book Appointment</button></div></div>
+    </div>
+  </div>
+  <div class="video-section-right-aligned">
+    <div class="video-section-text-content">
+        <div class="tag">Expert Insights</div>
+        <h2>Meet Dr. Fareed: <span>A Patient Story</span></h2>
+        <p class="sub">Hear directly from Dr. Fareed Ahmed as he discusses his approach to patient care and shares a heartwarming story about a patient's journey to a confident smile. Understand the dedication and expertise that defines our clinic.</p>
+        <a class="btn" onclick="go('doctors')">All Doctors <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="video-wrapper">
+        <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1600861118671-5582c0b621c1?fit=crop&w=1000&h=562&q=80');" onclick="openVideoModal('https://www.youtube.com/embed/dI-K3W1z60g?autoplay=1')">
+            <div class="video-card-overlay"></div>
+            <div class="video-card-info">
+                <h3>Dr. Fareed Ahmed's Patient Philosophy</h3>
+                <p>Compassionate care, exceptional results</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ==================== TREATMENTS PAGE ==================== -->
+<div class="page" id="pg-treatments">
+  <div class="page-hdr"><h1>All Our Comprehensive Dental <span>Treatments</span></h1><p>A full spectrum of advanced treatments for all ages and dental needs</p></div>
+  <div class="sec">
+    <div class="tag">Complete List</div><h2>Every Advanced <span>Treatment</span> We Offer</h2>
+    <p class="sub">At Al-Fazal Dental, we are committed to providing a full range of modern dental treatments. Our expert team uses state-of-the-art technology to ensure effective, safe, and comfortable procedures, helping you achieve and maintain optimal oral health.</p>
+    <div class="g6">
+
+      <div class="treat-item" onclick="openTreat('Tooth Extraction', '🦷', 'Safe and painless removal of damaged or problematic teeth. Performed under local anesthesia ensuring complete patient comfort, and we offer immediate replacement solutions.','https://plus.unsplash.com/premium_photo-1673928789221-66eb5b1237f7?w=600&auto=format&fit=crop&q=80',['Relieves severe pain and discomfort','Prevents infection spread to adjacent teeth','Prepares the mouth for orthodontic treatment','Same-day replacement options available for continuity of smile'])">
+        <img src="https://plus.unsplash.com/premium_photo-1702598544413-12567f383896?w=400&h=400&fit=crop&q=80" alt="Tooth Extraction">
+        <div class="tn">Tooth Extraction</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Teeth Whitening', '✨', 'Advanced professional whitening treatments designed to brighten your smile by 5–10 shades in a single, comfortable visit. It\'s a safe and effective way to remove stubborn stains.','https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&auto=format&fit=crop&q=80',['Effectively removes stubborn stains caused by food and drinks','Brightens your smile by an impressive 5–10 shades','A safe and professionally supervised procedure','Results typically last 1–3 years with proper care'])">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=400&fit=crop&q=80" alt="Teeth Whitening">
+        <div class="tn">Teeth Whitening</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Dental Implants', '🔩', 'Permanent titanium tooth replacements that are meticulously designed to look, feel, and function exactly like your natural teeth. This is the gold standard for long-term tooth replacement.','https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&auto=format&fit=crop&q=80',['Provides a truly permanent and durable solution for missing teeth','Offers a natural look and comfortable feel, just like your own teeth','Actively prevents jawbone loss and preserves facial structure','Easy to maintain with regular brushing and flossing'])">
+        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=400&fit=crop&q=80" alt="Dental Implants">
+        <div class="tn">Dental Implants</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Braces', '😁', 'Traditional metal and aesthetic ceramic braces, as well as clear aligners, are used to effectively correct misaligned teeth and bite issues for patients of all ages.','https://images.unsplash.com/photo-1596489354141-8631edc088c4?w=600&auto=format&fit=crop&q=80',['Effectively corrects misaligned teeth and overcrowding','Significantly improves overall bite function','Offers various options including discreet clear aligners','Proven to work effectively for all ages, children and adults'])">
+        <img src="https://images.unsplash.com/photo-1664530838743-494727bc7faa?w=400&h=400&fit=crop&q=80" alt="Braces">
+        <div class="tn">Braces</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Root Canal Therapy', '🩺', 'Our pain-free Root Canal Treatment (RCT) is designed to save infected or severely decayed teeth. Modern anesthesia techniques ensure zero discomfort, preserving your natural tooth permanently.','https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=600&auto=format&fit=crop&q=80',['Successfully saves your natural tooth from extraction','Ensures a completely zero-pain and comfortable procedure','Effectively eliminates internal tooth infection and pain','Provides a permanent solution to maintain tooth integrity'])">
+        <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=400&h=400&fit=crop&q=80" alt="Root Canal">
+        <div class="tn">Root Canal</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Dental Crown', '👑', 'A custom-designed cap meticulously placed over a damaged, discolored, or weakened tooth to restore its original shape, strength, and natural appearance.','https://images.unsplash.com/photo-1551690940-bfdf9a4e3966?w=600&auto=format&fit=crop&q=80',['Effectively protects severely damaged or weakened teeth','Provides a natural appearance that blends seamlessly with other teeth','Highly durable, typically lasting 10–15 years or more','Ideal for covering discolored or misshapen teeth'])">
+        <img src="https://images.unsplash.com/photo-1669142742575-feed7bff9f9e?w=400&h=400&fit=crop&q=80" alt="Dental Crown">
+        <div class="tn">Dental Crown</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Dental Bridge', '🌉', 'A fixed prosthetic device that seamlessly spans the gap created by one or more missing teeth. It\'s an excellent option for restoring chewing function and aesthetics.','https://images.unsplash.com/photo-1599818833959-1e3c8e4a2c0f?w=600&auto=format&fit=crop&q=80',['Effectively replaces one or multiple missing teeth','Restores your natural ability to chew and speak comfortably','Prevents remaining teeth from shifting out of position','A fixed solution that offers stability and convenience'])">
+        <img src="https://images.unsplash.com/photo-1660732205502-2c4dcd3af74d?w=400&h=400&fit=crop&q=80" alt="Dental Bridge">
+        <div class="tn">Dental Bridge</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Scaling & Polishing', '🧼', 'Professional cleaning that thoroughly removes plaque, tartar, and surface stains from above and below the gum line, vital for preventing gum disease.','https://media.istockphoto.com/id/1368946176/photo/dentist-removing-dental-calculus.webp?a=1&b=1&s=612x612&w=0&k=20&c=djce11GsOxBftIEAQd1bCvla-FMVB20nei1o3RvUnZ4=',['Provides a deep clean, removing harmful plaque and tartar','Effectively removes stubborn stains, brightening your smile','Crucial for preventing gum disease and cavities','Leaves your mouth feeling fresh and revitalized'])">
+        <img src="https://media.istockphoto.com/id/1368946176/photo/dentist-removing-dental-calculus.webp?a=1&b=1&s=612x612&w=0&k=20&c=djce11GsOxBftIEAQd1bCvla-FMVB20nei1o3RvUnZ4=" alt="Scaling">
+        <div class="tn">Scaling & Polishing</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Dentures', '🫦', 'Custom-crafted full and partial removable dentures designed for a natural look and comfortable chewing experience, restoring your smile and confidence.','https://images.unsplash.com/photo-1647524703912-9a956c08344c?w=600&auto=format&fit=crop&q=80',['Effectively replaces multiple missing teeth','Restores your natural ability to chew and speak comfortably','Custom-designed for a completely natural appearance','Removable for easy cleaning and optimal oral hygiene'])">
+        <img src="https://images.unsplash.com/photo-1647524703912-9a956c08344c?w=400&h=400&fit=crop&q=80" alt="Dentures">
+        <div class="tn">Dentures</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Kids Dentistry', '🧒', 'Gentle and fun dental care specially designed for children of all ages. Our friendly environment makes dental visits a positive and stress-free experience for young ones.','https://images.unsplash.com/photo-1598256989809-394fa4f6cd26?w=600&auto=format&fit=crop&q=80',['Provides a welcoming, child-friendly environment','Actively prevents childhood cavities and dental problems','Helps build excellent oral hygiene habits from an early age','Utilizes gentle and reassuring techniques for all kids'])">
+        <img src="https://images.unsplash.com/photo-1598256989809-394fa4f6cd26?w=400&h=400&fit=crop&q=80" alt="Kids Dentistry">
+        <div class="tn">Kids Dentistry</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Gum Treatment', '💉', 'Comprehensive treatment options for gingivitis to advanced periodontal disease. Our goal is to restore gum health, alleviate symptoms, and prevent potential tooth loss.','https://images.unsplash.com/photo-1598462061073-4e4f9b8c0a2f?w=600&auto=format&fit=crop&q=80',['Effectively stops the progression of gum disease','Significantly reduces gum inflammation and bleeding','Crucial for preventing long-term tooth loss','Contributes to fresher breath and healthier oral flora'])">
+        <img src="https://media.istockphoto.com/id/157474980/photo/dental-patient.webp?a=1&b=1&s=612x612&w=0&k=20&c=t7jop2IPrOqwlccn2jkW-CBbNypcq5nQR4nSQSulPn8=" alt="Gum Treatment">
+        <div class="tn">Gum Treatment</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('X-Ray & Diagnosis', '📸', 'State-of-the-art digital dental X-rays for accurate diagnosis of hidden problems and comprehensive oral health assessment with minimal radiation exposure.','https://images.unsplash.com/photo-1522849696084-818b29dfe210?w=600&auto=format&fit=crop&q=80',['Detects hidden dental issues not visible to the naked eye','Uses minimal radiation for patient safety','Ensures accurate and precise diagnosis','A quick and comfortable procedure'])">
+        <img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?w=400&h=400&fit=crop&q=80" alt="X-Ray">
+        <div class="tn">X-Ray & Diagnosis</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Veneers', '💎', 'Thin, custom-made porcelain shells that are bonded to the front surface of teeth to create a complete and dazzling smile makeover. They correct discoloration, chips, and gaps.','https://images.unsplash.com/photo-1614911802146-52c6f376f4e6?w=600&auto=format&fit=crop&q=80',['Offers a complete and dramatic smile makeover','Made from highly stain-resistant porcelain material','Effectively corrects chips, cracks, and gaps','Provides long-lasting results, typically 10–15 years']))">
+        <img src="https://media.istockphoto.com/id/469056712/photo/woman-having-tooth-removed.webp?a=1&b=1&s=612x612&w=0&k=20&c=z_rB0HMATssmiJ5li2CQ3GZHJG2imTWNZiBrgtJPnXY=" alt="Veneers">
+        <div class="tn">Veneers</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Wisdom Tooth Removal', '🧠', 'Safe and efficient extraction of impacted or problematic wisdom teeth to alleviate pain, prevent infection, and protect adjacent healthy teeth.','https://images.unsplash.com/photo-1559812401-447a17730e61?w=600&auto=format&fit=crop&q=80',['Provides significant relief from wisdom tooth pain','Effectively prevents infection and other complications','Protects adjacent healthy teeth from damage','Ensures a relatively quick recovery period'])">
+        <img src="https://plus.unsplash.com/premium_photo-1722873143746-232707ff0bb5?w=400&h=400&fit=crop&q=80" alt="Wisdom Tooth">
+        <div class="tn">Wisdom Tooth Removal</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Night Guards', '😴', 'Custom-fabricated night guards designed to protect your teeth from the damaging effects of grinding (bruxism) and clenching during sleep, relieving jaw pain.','https://images.unsplash.com/photo-1574343859-a7e8e5d3c8c7?w=600&auto=format&fit=crop&q=80',['Effectively prevents tooth grinding and clenching','Provides significant relief from jaw pain (TMJ)','Protects existing dental work and natural teeth','Custom-fitted for optimal comfort and effectiveness'])">
+        <img src="https://images.unsplash.com/photo-1657313611583-ce19d042cfe4?w=400&h=400&fit=crop&q=80" alt="Night Guards">
+        <div class="tn">Night Guards</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Laser Dentistry', '⚡', 'Precise laser procedures performed with minimal pain, significantly less bleeding, and dramatically faster recovery times for various dental treatments.','https://images.unsplash.com/photo-1582208035272-36a5a3a2a613?w=600&auto=format&fit=crop&q=80',['Ensures minimal pain and discomfort during procedures','Promotes significantly faster healing and recovery','Offers highly precise and targeted treatment','Often reduces the need for traditional anesthesia'])">
+        <img src="https://images.unsplash.com/photo-1662543701887-91f8f042a338?w=400&h=400&fit=crop&q=80" alt="Laser Dentistry">
+        <div class="tn">Laser Dentistry</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Bone Grafting', '🦴', 'A surgical procedure performed to rebuild and augment jaw bone volume, essential before dental implant placement or to support existing teeth.','https://images.unsplash.com/photo-1584288092787-8c31e7f334d7?w=600&auto=format&fit=crop&q=80',['Crucial for enabling successful dental implant placement','Effectively restores lost bone volume in the jaw','Prevents further jawbone deterioration and shrinkage','A proven and safe procedure for bone regeneration'])">
+        <img src="https://images.unsplash.com/photo-1664530837624-a75746d6a07a?w=400&h=400&fit=crop&q=80" alt="Bone Grafting">
+        <div class="tn">Bone Grafting</div>
+      </div>
+
+      <div class="treat-item" onclick="openTreat('Dental Sealants', '🛡️', 'Thin, protective coatings applied to the chewing surfaces of molars, primarily to prevent cavities. This preventive treatment is ideal for children and adolescents.','https://media.istockphoto.com/id/2203943647/photo/beautiful-young-woman-having-dental-treatment-at-dentists-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=bmvgFaPH9uZGzGmMoXwhEX5Gsvrzt2QLPVWiLiY7ZDE=',['Highly effective in preventing cavities on molars','A quick, painless, and non-invasive application','No drilling or anesthesia is needed for this procedure','Provides long-lasting protection, typically 5–10 years'])">
+        <img src="https://media.istockphoto.com/id/2203943647/photo/beautiful-young-woman-having-dental-treatment-at-dentists-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=bmvgFaPH9uZGzGmMoXwhEX5Gsvrzt2QLPVWiLiY7ZDE=" alt="Dental Sealants">
+        <div class="tn">Dental Sealants</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="video-section sec-gray">
+    <div class="tag">Explore Popular Treatments</div>
+    <h2>Watch Our <span>Treatment Showcase</span></h2>
+    <p class="sub">Delve deeper into some of our most popular dental treatments. These videos provide a clear and concise overview of procedures like teeth whitening, root canal therapy, and dental implants, helping you understand each step.</p>
+    <div class="video-grid">
+        <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?fit=crop&w=600&h=337&q=80');" onclick="openVideoModal('https://www.youtube.com/embed/T-0JzL1rD04?autoplay=1')">
+            <div class="video-card-overlay"></div>
+            <div class="video-card-info">
+                <h3>Teeth Whitening Process</h3>
+                <p>Achieve a brighter smile in one visit</p>
+            </div>
+        </div>
+        <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?fit=crop&w=600&h=337&q=80');" onclick="openVideoModal('https://www.youtube.com/embed/videoseries?list=PL_J_oW-lWf4-X7Z-2N4X3-1Y6X0Z9M_S0&index=2&t=0s?autoplay=1')">
+            <div class="video-card-overlay"></div>
+            <div class="video-card-info">
+                <h3>Understanding Dental Implants</h3>
+                <p>Your permanent tooth replacement solution</p>
+            </div>
+        </div>
+        <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?fit=crop&w=600&h=337&q=80');" onclick="openVideoModal('https://www.youtube.com/embed/videoseries?list=PL_J_oW-lWf4-X7Z-2N4X3-1Y6X0Z9M_S0&index=3&t=0s?autoplay=1')">
+            <div class="video-card-overlay"></div>
+            <div class="video-card-info">
+                <h3>Root Canal Therapy Explained</h3>
+                <p>Pain-free way to save your natural tooth</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- ==================== TREATMENT DETAIL PAGE ==================== -->
+<div class="page" id="pg-treatment-detail">
+  <div class="page-hdr"><h1 id="td-title">Treatment</h1><p>Detailed information about this treatment</p></div>
+  <div class="detail-wrap">
+    <div class="detail-img" id="td-icon"></div>
+    <p class="detail-desc" id="td-desc"></p>
+    <div class="detail-h2">Why Choose This Treatment?</div>
+    <ul class="detail-ul" id="td-benefits"></ul>
+    <div class="detail-book">
+      <h3>Ready to Get Started?</h3>
+      <p style="color:var(--text-muted);margin-bottom:1.8rem">Book your appointment at Al-Fazal Dental today for a personalized consultation and tailored treatment plan.</p>
+      <a class="btn" onclick="go('book')"><i class="far fa-calendar-alt"></i> Book Now</a>
+    </div>
+    <a class="back-btn" onclick="go('treatments')"><i class="fas fa-arrow-left"></i> Back to Treatments</a>
+  </div>
+</div>
+
+<!-- ==================== PATIENTS PAGE ==================== -->
+<div class="page" id="pg-patients">
+  <div class="page-hdr"><h1>Information For <span>Our Valued Patients</span></h1><p>Essential resources and support for your dental care journey</p></div>
+  <div class="sec">
+    <div class="tag">Patient Resources</div><h2>Everything You <span>Need to Know</span></h2>
+    <p class="sub">At Al-Fazal Medical & Dental Care, we strive to make your experience as smooth and informative as possible. Here you'll find everything from new patient guides to payment options and educational resources.</p>
+    <div class="g2">
+      <div class="pat-card"><i class="fas fa-info-circle"></i><h3>New Patient Information</h3><p>A comprehensive guide for your first visit to Al-Fazal Dental. Includes registration details, what documents to bring, and a clear overview of what to expect during your initial appointment.</p><a class="pat-link" onclick="go('contact')">Learn More <i class="fas fa-arrow-right"></i></a></div>
+      <div class="pat-card"><i class="fas fa-file-alt"></i><h3>Patient Forms</h3><p>Save time at your appointment by downloading and filling out necessary patient forms in advance. Accessible online for your convenience, ensuring a faster check-in process.</p><a class="pat-link">Download Forms <i class="fas fa-arrow-right"></i></a></div>
+      <div class="pat-card"><i class="fas fa-graduation-cap"></i><h3>Patient Education</h3><p>Explore our library of articles and guides on various oral health topics. Learn about common dental conditions, effective prevention strategies, and essential hygiene tips for all ages to maintain a healthy smile.</p><a class="pat-link">Read More <i class="fas fa-arrow-right"></i></a></div>
+      <div class="pat-card"><i class="fas fa-money-check-alt"></i><h3>Payment &amp; Insurance</h3><p>Understand our accepted payment methods, explore flexible installment plans designed to ease your financial burden, and get detailed information regarding insurance policies for all major treatments.</p><a class="pat-link">View Options <i class="fas fa-arrow-right"></i></a></div>
+    </div>
+  </div>
+  <div class="sec-gray">
+    <div style="text-align:center"><div class="tag" style="justify-content:center">FAQ</div><h2>Frequently Asked <span>Questions</span></h2>
+    <p class="sub">Have questions? We've got answers. Browse through our most common patient queries to find the information you need quickly and easily.</p></div>
+    <div style="max-width:850px;margin:2.5rem auto 0">
+      <div class="faq-item"><div class="faq-q">Is root canal treatment painful? <span class="faq-tog">+</span></div><div class="faq-a">Absolutely not! At Al-Fazal Dental, root canal treatment is completely pain-free thanks to our advanced local anesthesia techniques and gentle approach. Most patients are pleasantly surprised at how comfortable the procedure is.</div></div>
+      <div class="faq-item"><div class="faq-q">How long does teeth whitening last? <span class="faq-tog">+</span></div><div class="faq-a">Professional teeth whitening results typically last between 1 to 3 years. For the best long-term outcomes and to maintain your dazzling smile, we recommend touch-up sessions every 6 to 12 months, depending on your lifestyle and dietary habits.</div></div>
+      <div class="faq-item"><div class="faq-q">What is the cost of dental implants? <span class="faq-tog">+</span></div><div class="faq-a">The cost of dental implants at Al-Fazal Dental starts from Rs. 35,000 per tooth. We understand that this is a significant investment, which is why we offer flexible installment payment options to make this advanced treatment accessible to everyone.</div></div>
+      <div class="faq-item"><div class="faq-q">What age is best for braces? <span class="faq-tog">+</span></div><div class="faq-a">While braces are highly effective for children and adolescents, typically between ages 10–14, they are equally effective for adults looking to correct misaligned teeth. We also offer discreet clear aligners as an excellent option for adult orthodontics.</div></div>
+      <div class="faq-item"><div class="faq-q">Do you treat dental emergencies? <span class="faq-tog">+</span></div><div class="faq-a">Yes, absolutely! We understand that dental emergencies can happen at any time. Al-Fazal Dental is open daily until 11:30 PM and we welcome all dental emergencies. Please call us immediately at 0321-4105096 for urgent care.</div></div>
+      <div class="faq-item"><div class="faq-q">How do I book an appointment? <span class="faq-tog">+</span></div><div class="faq-a">Booking an appointment with us is easy! You can call us directly at 0321-4105096, send us a message on WhatsApp, or simply click the "Book Now" button on our website. Walk-ins are also always welcome during our clinic hours. Your first consultation is completely FREE!</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== REVIEWS PAGE ==================== -->
+<div class="page" id="pg-reviews">
+  <div class="page-hdr"><h1>What Our <span>Patients Say</span></h1><p>Real reviews and heartfelt testimonials from our 5000+ satisfied patients</p></div>
+  <div class="sec-gray">
+    <div class="tag">Patient Feedback</div><h2>Our <span>Satisfied Patients</span> Speak</h2>
+    <p class="sub">We are incredibly proud of the positive feedback we receive from our patients. Their experiences reflect our commitment to excellence, compassionate care, and achieving outstanding results.</p>
+    <div class="g3">
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"Had a truly great experience at Al-Fazal Dental. The staff is incredibly polite, the clinic is impeccably clean, and the dentist demonstrated exceptional care. I am very satisfied with the results!"</div><div class="rev-auth"><div class="rev-av">ME</div><div><div class="rev-name">Muhammad Elahi</div><div class="rev-src">Google Review</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"Dr. Ayesha is outstanding! She explained every single step of my root canal treatment perfectly, ensuring I understood everything. Her guidance made the entire process very comforting and helpful."</div><div class="rev-auth"><div class="rev-av">NK</div><div><div class="rev-name">Nadir Khan</div><div class="rev-src">Google Review</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"Dr. Fareed is genuinely the best! There's a true healing touch in his hands. I experienced absolutely no pain during my entire treatment, which was a huge relief. Highly recommend him!"</div><div class="rev-auth"><div class="rev-av">RH</div><div><div class="rev-name">Rana M. Haris</div><div class="rev-src">Google Review</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★☆</div><div class="rev-txt">"Excellent experience overall, from booking to treatment completion. The staff is very professional and the doctors are truly skilled. I always recommend Al-Fazal for any dental needs."</div><div class="rev-auth"><div class="rev-av">FK</div><div><div class="rev-name">Faisal Khan</div><div class="rev-src">Local Guide</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"My kids absolutely love Dr. Hina! She has a wonderful way of making dental checkups fun and engaging for them. I highly recommend Al-Fazal for anyone seeking pediatric dentistry services!"</div><div class="rev-auth"><div class="rev-av">SZ</div><div><div class="rev-name">Sara Zaman</div><div class="rev-src">Parent Review</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-txt">"The dental implant procedure I had done here was incredibly smooth and completely painless. Dr. Usman is very skilled and efficient. I am truly impressed with the natural-looking results!"</div><div class="rev-auth"><div class="rev-av">AS</div><div><div class="rev-name">Ali Shah</div><div class="rev-src">Verified Patient</div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GALLERY PAGE ==================== -->
+<div class="page" id="pg-gallery">
+  <div class="page-hdr">
+    <h1>Our State-of-the-Art Clinic <span>Gallery</span></h1>
+    <p>A visual tour of our modern facilities, comfortable waiting areas, and advanced treatment rooms</p>
+  </div>
+
+  <div class="sec">
+    <div class="tag">Our Clinic</div>
+    <h2>Modern <span>Facilities</span> Designed for Your Comfort</h2>
+    <p class="sub">Step into Al-Fazal Medical & Dental Care and experience a welcoming, hygienic, and technologically advanced environment. We've designed our clinic to ensure your comfort and provide the best possible dental experience.</p>
+    <div class="gal-grid">
+
+      <div class="gal-item" style="background-image:url('https://media.istockphoto.com/id/1312706504/photo/modern-hospital-building.webp?a=1&b=1&s=612x612&w=0&k=20&c=6O-3aHKMmBWeAZo9cj_6HGdjk8dadJSmYqT6Q-9kzrE=');"></div>
+
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1740953448394-86122e98c1be?w=800&auto=format&fit=crop&q=80');"></div>
+
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&auto=format&fit=crop&q=80');"></div>
+
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1662837775283-16e2f4bdff85?w=800&auto=format&fit=crop&q=80');"></div>
+
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1734518352225-22a52666268c?w=800&auto=format&fit=crop&q=80');"></div>
+
+      <div class="gal-item" style="background-image:url('https://media.istockphoto.com/id/1436151404/photo/he-has-been-his-client-for-years.jpg?s=612x612&w=0&k=20');"></div>
+
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1766890410757-3abb563b3918?w=800&auto=format&fit=crop&q=80');"></div>
+
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1640350168509-756f1ef84b37?w=800&auto=format&fit=crop&q=80');"></div>
+
+    </div>
+  </div>
+</div>
+<!-- ==================== AWARDS PAGE ==================== -->
+<div class="page" id="pg-awards">
+  <div class="page-hdr"><h1>Our <span>Awards &amp; Certificates</span></h1><p>Recognition of our unwavering dedication to excellence in dental care</p></div>
+  <div class="sec-dark">
+    <div class="tag" style="color:rgba(255,255,255,.7)">Our Achievements</div>
+    <h2 style="color:var(--white-color)">Our Esteemed <span>Recognitions</span></h2>
+    <p class="sub" style="color:rgba(255,255,255,.8);">At Al-Fazal Medical & Dental Care, our commitment to outstanding patient care, clinical excellence, and community service has been recognized with numerous awards and certifications. These accolades reflect our passion for dentistry and our dedication to continuous improvement.</p>
+    <div class="g3" style="margin-top:3rem">
+
+      <div class="award-card">
+        <img src="https://images.unsplash.com/photo-1677640724372-adb865d29aa8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Best Dental Clinic Trophy">
+        <h3>Best Dental Clinic Johar Town</h3>
+        <p>Proudly awarded in 2023 for receiving the highest community votes for our outstanding dental services and patient satisfaction in Johar Town.</p>
+      </div>
+
+      <div class="award-card">
+        <img src="https://images.unsplash.com/photo-1659081450592-99fc16c56b9b?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Advanced Treatment Certificate">
+        <h3>Advanced Treatment Certified</h3>
+        <p>Certified for mastering and implementing the latest cutting-edge techniques in both dental implants and advanced laser dentistry procedures.</p>
+      </div>
+
+      <div class="award-card">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Doctor Handshake Award">
+        <h3>Patient Satisfaction Award</h3>
+        <p>Recognized for consistently achieving exceptionally high patient care and satisfaction levels, reflecting our patient-first approach.</p>
+      </div>
+
+      <div class="award-card">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Community Service Event">
+        <h3>Community Service Award</h3>
+        <p>Acknowledged for our dedicated participation in local health camps and impactful dental awareness programs, serving the wider community.</p>
+      </div>
+
+      <div class="award-card">
+        <img src="https://images.unsplash.com/photo-1632679090212-612ac1f4d76f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="University Certification">
+        <h3>Hygiene &amp; Safety Certified</h3>
+        <p>Certified for upholding the highest international standards of hygiene, sterilization, and comprehensive patient safety protocols within our clinic.</p>
+      </div>
+
+      <div class="award-card">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Innovation Ribbon Award">
+        <h3>Dental Innovation Award</h3>
+        <p>Awarded for our innovative and pioneering approaches in pain management, ensuring patient comfort, and enhancing overall treatment efficiency.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ==================== CONTACT PAGE ==================== -->
+<div class="page" id="pg-contact">
+  <div class="page-hdr"><h1>Get In <span>Touch</span></h1><p>Book your appointment, send us an inquiry, or visit our clinic today</p></div>
+  <div class="sec">
+    <div class="cgrid">
+      <div>
+        <div class="tag">Contact Info</div><h2>Visit <span>Us Today</span></h2>
+        <p style="font-size:.95rem;color:var(--text-muted);margin-bottom:.8rem">Conveniently located in BOR Society, Johar Town, Lahore. We are open daily, with extended hours until 11:30 PM for your flexibility.</p>
+        <div class="c-items">
+          <a href="tel:03214105096" class="c-item"><div class="c-ico"><i class="fas fa-phone-alt"></i></div><div><div class="c-lbl">Call Us</div><div class="c-val">0321-4105096</div></div></a>
+          <a href="https://wa.me/923214105096" class="c-item"><div class="c-ico"><i class="fab fa-whatsapp"></i></div><div><div class="c-lbl">WhatsApp</div><div class="c-val">0321-4105096</div></div></a>
+          <div class="c-item"><div class="c-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="c-lbl">Address</div><div class="c-val">BOR Main Rd, BOR Society, Johar Town, Lahore</div></div></div>
+          <div class="c-item"><div class="c-ico"><i class="fas fa-clock"></i></div><div><div class="c-lbl">Hours</div><div class="c-val">Daily 9:00 AM – 11:30 PM</div></div></div>
+        </div>
+
+        <!-- Live Google Map for Johar Town -->
+        <div class="map-ph" style="padding:0; overflow:hidden;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.731057476834!2d74.25055007559483!3d31.50348734994024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919036f1b32b9c7%3A0x6a0c0e7b8a7f1a3a!2sAl-Fazal%20Medical%20%26%20Dental%20Care!5e0!3m2!1sen!2sPK!4v1709462552988!5m2!1sen!2sPK" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="cf">
+        <div class="cf-ttl">📅 Book Your Appointment</div>
+        <form onsubmit="handleContactSubmit(event)">
+          <div class="cfrow">
+            <div><label class="cfl" for="cf-name">Full Name</label><input type="text" id="cf-name" class="cfi" placeholder="Your name" required></div>
+            <div><label class="cfl" for="cf-phone">Phone</label><input type="tel" id="cf-phone" class="cfi" placeholder="0300-0000000" required></div>
+          </div>
+          <label class="cfl" for="cf-treatment">Treatment Needed</label>
+          <select id="cf-treatment" class="cfi" required><option value="">Select Treatment</option><option>Teeth Cleaning</option><option>Whitening</option><option>Root Canal</option><option>Implants</option><option>Braces</option><option>Crowns</option><option>Dentures</option><option>Checkup</option><option>Other</option></select>
+          <div class="cfrow">
+            <div><label class="cfl" for="cf-date">Preferred Date</label><input type="date" id="cf-date" class="cfi" required></div>
+            <div><label class="cfl" for="cf-time">Preferred Time</label><select id="cf-time" class="cfi" required><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option>Evening (5–11)</option></select></div>
+          </div>
+          <label class="cfl" for="cf-msg">Message</label>
+          <textarea id="cf-msg" class="cfi" placeholder="Any specific concern or question..."></textarea>
+          <button type="submit" class="btn" style="width:100%;justify-content:center"><i class="far fa-calendar-alt"></i> Submit Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="sec-dark">
+    <div style="text-align:center;margin-bottom:3rem">
+      <div class="tag" style="color:rgba(255,255,255,.7);justify-content:center">Clinic Hours</div>
+      <h2 style="color:var(--white-color)">Our Detailed <span>Opening Timings</span></h2>
+      <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-top:0.8rem;">We're open seven days a week to accommodate your schedule. Click on any day to head to our booking page!</p>
+    </div>
+    <div class="t7">
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Mon</div><div class="tc-time">9 AM<br>11:30 PM</div></div>
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Tue</div><div class="tc-time">9 AM<br>11:30 PM</div></div>
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Wed</div><div class="tc-time">9 AM<br>11:30 PM</div></div>
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Thu</div><div class="tc-time">9 AM<br>11:30 PM</div></div>
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Fri</div><div class="tc-time">9 AM<br>11:30 PM</div></div>
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Sat</div><div class="tc-time">9 AM<br>11:30 PM</div></div>
+      <div class="tc" onclick="go('book')" style="cursor:pointer;" title="Click to Book"><div class="tc-day">Sun</div><div class="tc-time tc-closed">Evening Only (4-11:30 PM)</div></div>
+    </div>
+  </div>
+</div>
+<!-- ==================== BOOK NOW PAGE ==================== -->
+<div class="page" id="pg-book">
+  <div class="page-hdr"><h1>Book Your <span>Appointment</span></h1><p>Schedule your visit with our expert team today for a healthier smile</p></div>
+  <div class="sec">
+    <div class="book-card">
+      <div class="bk-ttl">📅 Complete Your Appointment Form</div>
+      <p class="sub" style="max-width: 90%; margin: -1rem auto 1.5rem auto; text-align: center; font-size: 0.95rem;">Please fill out the details below, and our team will get back to you shortly to confirm your booking.</p>
+      <form onsubmit="handleBookingPageSubmit(event)">
+        <div class="bkrow">
+          <div><label class="bkl" for="bk-name">Full Name</label><input type="text" id="bk-name" class="bki" placeholder="Your full name" required></div>
+          <div><label class="bkl" for="bk-phone">Phone</label><input type="tel" id="bk-phone" class="bki" placeholder="0300-0000000" required></div>
+        </div>
+        <label class="bkl" for="bk-service">Select Service</label>
+        <select id="bk-service" class="bki" required>
+          <option value="">Select Treatment</option>
+          <option>Teeth Cleaning</option><option>Teeth Whitening</option><option>Root Canal Therapy</option>
+          <option>Dental Implants</option><option>Braces &amp; Aligners</option><option>Crowns &amp; Bridges</option>
+          <option>Dentures</option><option>Tooth Extraction</option><option>Gum Treatment</option>
+          <option>Dental Fillings</option><option>Veneers</option><option>Laser Dentistry</option>
+          <option>Pediatric Dentistry</option><option>Oral Cancer Screening</option><option>Sedation Dentistry</option>
+          <option>General Checkup</option><option>Other (Please specify in message)</option>
+        </select>
+        <label class="bkl" for="bk-doctor">Preferred Doctor (Optional)</label>
+        <select id="bk-doctor" class="bki">
+          <option value="">Any Doctor</option>
+          <option>Dr. Fareed Ahmed (General & Cosmetic)</option><option>Dr. Ayesha Malik (Orthodontics)</option>
+          <option>Dr. Usman Tariq (Implants & Surgery)</option><option>Dr. Hina Khan (Pediatric)</option>
+          <option>Dr. Bilal Sarwar (Oral Surgeon)</option>
+        </select>
+        <div class="bkrow">
+          <div><label class="bkl" for="bk-date">Preferred Date</label><input type="date" id="bk-date" class="bki" required></div>
+          <div><label class="bkl" for="bk-time">Time Slot</label><select id="bk-time" class="bki" required><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option>Evening (5–11)</option></select></div>
+        </div>
+        <label class="bkl" for="bk-msg">Message (Optional)</label>
+        <textarea id="bk-msg" class="bki" placeholder="Any specific concern or question..."></textarea>
+        <button type="submit" class="btn" style="width:100%;justify-content:center"><i class="far fa-calendar-alt"></i> Submit Appointment</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-logo">Al-Fazal <span>Dental</span></div>
+      <p class="f-desc">Johar Town's most trusted dental clinic since 2005. We provide expert doctors, pain-free treatments, and affordable packages for the entire family, ensuring every smile is a healthy one.</p>
+      <div class="f-socials">
+        <a href="#" class="fsoc"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="fsoc"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923214105096?text=Hello%20Al-Fazal%20Dental%2C%20I%20have%20a%20general%20query." class="fsoc"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="f-hdr">Services</div>
+      <ul class="f-links">
+        <li><a onclick="go('services')"><i class="fas fa-chevron-right"></i> Teeth Whitening</a></li>
+        <li><a onclick="go('services')"><i class="fas fa-chevron-right"></i> Root Canal Therapy</a></li>
+        <li><a onclick="go('services')"><i class="fas fa-chevron-right"></i> Dental Implants</a></li>
+        <li><a onclick="go('services')"><i class="fas fa-chevron-right"></i> Braces & Aligners</a></li>
+        <li><a onclick="go('services')"><i class="fas fa-chevron-right"></i> Scaling & Polishing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-hdr">Quick Links</div>
+      <ul class="f-links">
+        <li><a onclick="go('about')"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a onclick="go('doctors')"><i class="fas fa-chevron-right"></i> Our Doctors</a></li>
+        <li><a onclick="go('treatments')"><i class="fas fa-chevron-right"></i> Treatments</a></li>
+        <li><a onclick="go('gallery')"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+        <li><a onclick="go('reviews')"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-hdr">Contact</div>
+      <ul class="f-links">
+        <li><a href="tel:03214105096"><i class="fas fa-phone-alt"></i> 0321-4105096</a></li>
+        <li><a href="https://wa.me/923214105096?text=Hello%20Al-Fazal%20Dental%2C%20I%20have%20a%20general%20query."><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+        <li><a onclick="go('contact')"><i class="fas fa-map-marker-alt"></i> Johar Town, Lahore</a></li>
+        <li><a onclick="go('contact')"><i class="fas fa-clock"></i> 9 AM – 11:30 PM Daily</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2025 Al-Fazal Medical &amp; Dental Care — All Rights Reserved</span>
+    <span>Developed with passion by SkyEagle Digital Agency 🚀</span>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/923214105096?text=I%20have%20a%20query%20regarding%20dental%20services." class="wa" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal-overlay" id="videoModal">
+    <div class="video-modal-content">
+        <span class="video-modal-close" onclick="closeVideoModal()"><i class="fas fa-times"></i></span>
+        <iframe id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div class="priv-overlay" id="privModal">
+  <div class="priv-box">
+    <h3>🔒 Privacy Policy</h3>
+    <p>Your privacy is important to us. This policy explains how we collect and protect your information.</p>
+    <p><strong>Information We Collect:</strong> We collect your name, contact details, and relevant medical history when you book appointments or submit inquiries.</p>
+    <p><strong>How We Use It:</strong> Your information is used solely to provide personalized dental care, manage your appointments efficiently, process payments, and to communicate important updates regarding your treatment plan. We do not share your data with third parties.</p>
+    <p><strong>Data Security:</strong> We implement robust security measures, including encryption and access controls, to protect your personal and medical data from unauthorized access, alteration, or disclosure. Your trust is paramount.</p>
+    <p><strong>Your Rights:</strong> You have the right to access, update, or request the deletion of your personal information at any time. Please contact us if you have any concerns about your data.</p>
+    <p>By clicking "Accept," you agree to the terms outlined in our Privacy Policy and consent to the collection and use of your information as described.</p>
+    <div class="priv-actions">
+      <button class="priv-accept" onclick="acceptPriv()">✓ Accept & Continue</button>
+      <button class="priv-later" onclick="closePriv()">Not Now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== WHY CARDS EXPAND =====
+function toggleWhy(card) {
+  const isOpen = card.classList.contains('open');
+  // Close all first
+  document.querySelectorAll('.why-exp-card').forEach(c => c.classList.remove('open'));
+  // Open clicked one if it was closed
+  if (!isOpen) card.classList.add('open');
+}
+
+// ===== NAVIGATION =====
+function go(page) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+  // Show target page
+  const el = document.getElementById('pg-' + page);
+  if (el) {
+    el.style.display = 'block';
+    el.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  // Update active nav link
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active-nav', a.getAttribute('data-p') === page);
+  });
+  // Ensure mobile menu is closed when navigating
+  closeMob();
+  return false; // prevent any default behavior
+}
+
+// ===== SERVICE DETAIL =====
+function openSvc(name, icon, desc, price, benefits) {
+  document.getElementById('sd-title').textContent = name;
+  const sdIconElement = document.getElementById('sd-icon');
+  sdIconElement.textContent = icon; // Set emoji
+  sdIconElement.style.backgroundImage = 'none'; // Ensure no background image for service detail
+  sdIconElement.style.fontSize = '7rem'; // Default font size for emoji
+  document.getElementById('sd-desc').textContent = desc;
+  document.getElementById('sd-price').textContent = price;
+  document.getElementById('sd-benefits').innerHTML = benefits.map(b => '<li>' + b + '</li>').join('');
+  go('service-detail');
+}
+
+// ===== TREATMENT DETAIL ===== (Uses images for detail page icon)
+function openTreat(name, iconHtmlOrEmoji, desc, imageUrl, benefits) {
+  document.getElementById('td-title').textContent = name;
+  const tdIconElement = document.getElementById('td-icon');
+
+  if (imageUrl) {
+    tdIconElement.style.backgroundImage = `url('${imageUrl}')`;
+    tdIconElement.style.backgroundSize = 'cover';
+    tdIconElement.style.backgroundPosition = 'center';
+    tdIconElement.innerHTML = ''; // Clear any inner HTML/emoji
+    tdIconElement.style.fontSize = '0'; // Hide emoji text if image is used
+  } else {
+    tdIconElement.style.backgroundImage = 'none';
+    tdIconElement.innerHTML = iconHtmlOrEmoji; // Set icon (could be emoji string or <i> tag HTML)
+    tdIconElement.style.fontSize = '7rem'; // Show emoji text if no image
+  }
+
+  document.getElementById('td-desc').textContent = desc;
+  document.getElementById('td-benefits').innerHTML = benefits.map(b => '<li>' + b + '</li>').join('');
+  go('treatment-detail');
+}
+
+// ===== MOBILE MENU =====
+function openMob() {
+  document.getElementById('mobMenu').classList.add('open');
+  document.body.style.overflow='hidden'; // This stops scrolling when mobile menu is open
+}
+function closeMob() {
+  document.getElementById('mobMenu').classList.remove('open');
+  document.body.style.overflow=''; // This restores scrolling when mobile menu is closed
+}
+
+// ===== FAQ =====
+document.addEventListener('click', function(e) {
+  const q = e.target.closest('.faq-q');
+  if (q) { q.closest('.faq-item').classList.toggle('open'); }
+});
+
+// ===== BOOKING FORM SUBMISSION (ADMIN PANEL SIMULATION) =====
+function handleBookingSubmit(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const name = document.getElementById('appt-name').value;
+  const phone = document.getElementById('appt-phone').value;
+  const treatment = document.getElementById('appt-treatment').value;
+  const date = document.getElementById('appt-date').value;
+  const time = document.getElementById('appt-time').value;
+
+  if (!name || !phone || !treatment || !date || !time) {
+    alert("Please fill in all required fields for your appointment.");
+    return;
+  }
+
+  const bookingDetails = `
+    --- NEW APPOINTMENT BOOKING (HOME PAGE) ---
+    Name: ${name}
+    Phone: ${phone}
+    Treatment: ${treatment}
+    Date: ${date}
+    Time: ${time}
+    -------------------------------------------
+    (This data would be sent to the admin panel.)
+  `;
+  console.log(bookingDetails); // Log to console for simulation
+  alert(`Thank you for booking, ${name}! Your appointment for ${treatment} on ${date} (${time}) has been submitted to our team. We will contact you shortly to confirm.`);
+
+  // Optionally clear the form
+  event.target.reset();
+}
+
+function handleContactSubmit(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const name = document.getElementById('cf-name').value;
+  const phone = document.getElementById('cf-phone').value;
+  const treatment = document.getElementById('cf-treatment').value;
+  const date = document.getElementById('cf-date').value;
+  const time = document.getElementById('cf-time').value;
+  const message = document.getElementById('cf-msg').value;
+
+  if (!name || !phone || !treatment || !date || !time) {
+    alert("Please fill in all required fields for your appointment request.");
+    return;
+  }
+
+  const contactDetails = `
+    --- NEW CONTACT FORM SUBMISSION ---
+    Name: ${name}
+    Phone: ${phone}
+    Treatment: ${treatment}
+    Date: ${date}
+    Time: ${time}
+    Message: ${message || 'No additional message'}
+    -------------------------------------
+    (This data would be sent to the admin panel.)
+  `;
+  console.log(contactDetails); // Log to console for simulation
+  alert(`Thank you for your inquiry, ${name}! Your appointment request has been submitted to our team. We will contact you shortly.`);
+
+  // Optionally clear the form
+  event.target.reset();
+}
+
+function handleBookingPageSubmit(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const name = document.getElementById('bk-name').value;
+  const phone = document.getElementById('bk-phone').value;
+  const service = document.getElementById('bk-service').value;
+  const doctor = document.getElementById('bk-doctor').value;
+  const date = document.getElementById('bk-date').value;
+  const time = document.getElementById('bk-time').value;
+  const message = document.getElementById('bk-msg').value;
+
+  if (!name || !phone || !service || !date || !time) {
+    alert("Please fill in all required fields to book your appointment.");
+    return;
+  }
+
+  const bookingPageDetails = `
+    --- NEW APPOINTMENT (FROM BOOKING PAGE) ---
+    Name: ${name}
+    Phone: ${phone}
+    Service: ${service}
+    Preferred Doctor: ${doctor || 'Any Doctor'}
+    Date: ${date}
+    Time: ${time}
+    Message: ${message || 'No additional message'}
+    ---------------------------------------------
+    (This data would be sent to the admin panel.)
+  `;
+  console.log(bookingPageDetails); // Log to console for simulation
+  alert(`Appointment confirmed! Thank you, ${name}. Your booking for ${service} on ${date} (${time}) has been received. We look forward to seeing you!`);
+
+  // Optionally clear the form
+  event.target.reset();
+}
+
+
+// ===== HERO TEXT ROTATOR =====
+let currentTextIndex = 0;
+const heroTexts = document.querySelectorAll('#heroTextRotator span');
+
+function rotateHeroText() {
+  if (heroTexts.length === 0) return;
+
+  // Fade out current text
+  heroTexts[currentTextIndex].classList.remove('active-text');
+
+  // Move to next text
+  currentTextIndex = (currentTextIndex + 1) % heroTexts.length;
+
+  // Fade in new text
+  heroTexts[currentTextIndex].classList.add('active-text');
+}
+
+// ===== HERO IMAGE CAROUSEL =====
+let currentSlideIndex = 0;
+const heroSlides = document.querySelectorAll('#heroImageCarousel .hero-carousel-item');
+
+function rotateHeroSlides() {
+  if (heroSlides.length === 0) return;
+
+  heroSlides.forEach((slide, index) => {
+    slide.classList.remove('active-slide');
+  });
+
+  heroSlides[currentSlideIndex].classList.add('active-slide');
+
+  currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+}
+
+// ===== VIDEO MODAL =====
+const videoModal = document.getElementById('videoModal');
+const videoPlayer = document.getElementById('videoPlayer');
+
+function openVideoModal(videoUrl) {
+    videoPlayer.src = videoUrl;
+    videoModal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+function closeVideoModal() {
+    videoPlayer.src = ''; // Stop video playback
+    videoModal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close video modal if clicking outside the content
+videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+        closeVideoModal();
+    }
+});
+
+
+// ===== SPLASH =====
+window.addEventListener('DOMContentLoaded', function() {
+  // Hide splash after animations
+  setTimeout(() => {
+    document.getElementById('splash').classList.add('hide'); // This hides the splash
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none'; // This completely removes splash
+      // Show home page
+      const home = document.getElementById('pg-home');
+      home.style.display = 'block';
+      home.classList.add('active');
+
+      // Start rotators only after splash is gone and home is active
+      rotateHeroText(); // Show first text immediately
+      setInterval(rotateHeroText, 4000); // Change text every 4 seconds
+
+      rotateHeroSlides(); // Show first slide immediately
+      setInterval(rotateHeroSlides, 6000); // Change slide every 6 seconds (slightly longer than text)
+
+    }, 1300); // This duration should be slightly longer than the splash hide transition
+  }, 4000); // Total duration for splash animations
+
+  // Initialize Hero Text Rotator to show the first text instantly
+  if (heroTexts.length > 0) {
+    heroTexts[0].classList.add('active-text');
+  }
+  // Initialize Hero Image Carousel to show the first slide instantly
+  if (heroSlides.length > 0) {
+    heroSlides[0].classList.add('active-slide');
+  }
+
+});
+
+
+// ===== PRIVACY =====
+function acceptPriv() { localStorage.setItem('alfazal_priv','1'); closePriv(); }
+function closePriv() { document.getElementById('privModal').classList.remove('show'); document.body.style.overflow=''; }
+if(!localStorage.getItem('alfazal_priv')) {
+  setTimeout(() => { document.getElementById('privModal').classList.add('show'); document.body.style.overflow='hidden'; }, 60000); // Show after 60 seconds
+}
+</script>
+
+
+</body>
+</html>
